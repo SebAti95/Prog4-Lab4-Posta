@@ -13,11 +13,11 @@ class DTPublicacion {
 
     public:
         DTPublicacion(int codigo, DTFecha* fecha, std::string texto, std::string precio, std::string inmobiliaria);
-        int getCodigo();
-        DTFecha* getFecha();
-        std::string getTexto();
-        std::string getPrecio();
-        std::string getInmobiliaria();
+        int getCodigo() const;
+        DTFecha* getFecha() const;
+        std::string getTexto() const;
+        std::string getPrecio() const;
+        std::string getInmobiliaria() const;
         ~DTPublicacion();
 };
 

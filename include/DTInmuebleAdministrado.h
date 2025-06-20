@@ -12,7 +12,7 @@ class DTInmuebleAdministrado {
         DTInmuebleAdministrado(int codigo, std::string direccion, DTFecha* fechaComienzo);
         int getCodigo() const;
         std::string getDireccion() const;
-        DTFecha* getFechaComienzo();
+        DTFecha* getFechaComienzo() const;
         ~DTInmuebleAdministrado();
         
         // Operator for std::set comparison

@@ -81,6 +81,12 @@ void AdministraPropiedad::eliminarPublicacionesAsoc() {
 
 void AdministraPropiedad::eliminarInmobiliaria() {
     this->inmobiliaria->eliminarAdministracion(this);
+    this->inmobiliaria = nullptr;
+}
+
+void AdministraPropiedad::eliminarInmueble() {
+    this->inmueble->eliminarAdministracion(this);
+    this->inmueble = nullptr;
 }
 
 bool AdministraPropiedad::inmobiliariaAsociada(Inmobiliaria* inm) {

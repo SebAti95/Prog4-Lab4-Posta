@@ -259,22 +259,15 @@ void altaPublicacion(){
 
     //TODO: Coleccion de DTInmuebleAdministrado = controlador->listarInmueblesAdministrados(nicknameInmobiliaria);
     std::set<DTInmuebleAdministrado> ColInmueblesAdmin=factory->getIControladorPublicacion()->listarInmueblesAdministrados(nicknameInmobiliaria);
-    //Recorrer la coleccion Mostrar "- Codigo: xx, Direccion: yy, Propietario: zzz"
+
+    //Recorrer la coleccion Mostrar "- Codigo: xx, Direccion: yy, Fecha: dd/mm/aaaa"
     for (std::set<DTInmuebleAdministrado>::const_iterator it = ColInmueblesAdmin.begin(); it != ColInmueblesAdmin.end(); ++it) {
             int codigo = it->getCodigo(); // Dereference the iterator
             // Get inmueble to access propietario information
-            ManejadorPublicacion* mp = ManejadorPublicacion::getInstance();
-            Inmueble* inmueble = mp->getInmueble(codigo);
-            Propietario* prop = nullptr;
-            std::string propietarioNick = "";
-            if (inmueble != nullptr) {
-                prop = inmueble->getPropietario();
-                if (prop != nullptr) {
-                    propietarioNick = prop->getNick();
-                }
-            }
-            std::string dir = it->getDireccion(); // Dereference the iterator
-            std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", Propietario: " << propietarioNick << std::endl;
+            std::string dir=it->getDireccion();
+            DTFecha f=it->getFechaComienzo();
+            std::string fecha=f.toString();
+            std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", Propietario: " << fecha << std::endl;
     }
 
     int codigoInmueble;
@@ -296,6 +289,7 @@ void altaPublicacion(){
     float precio;
     std::cin >> precio;
     std::cin.ignore();
+
     //TODO:Controlador->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio)
     factory->getIControladorPublicacion()->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio);
 }
@@ -331,7 +325,20 @@ void consultaPublicaciones(){
     }
     std::cout << "Publicaciones encontradas:\n";
     //TODO: Coleccion de DTPublicacion = Controlador->listarPublicacion(tipoPublicacion, precionMinimo, precioMaximo, tipoInmueble);
+    std::set<DTPublicacion> ColeccionDTPublicacion=factory->getIControladorPublicacion()->listarPublicacion(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
+
     //Recorrer la coleccion Mostrar "- Codigo: xx, fecha: dd/mm/yyyy, texto: zzz, precio: aaa, inmobiliaria: bbb";
+    for (std::set<DTPublicacion>::const_iterator it = ColeccionDTPublicacion.begin(); it != ColeccionDTPublicacion.end(); ++it) {
+            int codigo = it->getCodigo(); // Dereference the iterator
+            // Get inmueble to access propietario information
+            DTFecha f=it->getFecha();
+            std::string fecha=f.toString();
+            std::string txt=it->getTexto();
+            std::string precio=it->getPrecio();
+            std::string inm=it->getInmobiliaria();
+            std::cout << "- Codigo: " << codigo << ", fecha:: " << fecha << ", texto: " << txt << ", precio: " << precio << ", inmobiliaria: " << inm << std::endl;
+    }
+
     int verDetalle;
     std::cout << "Ver detalle de la publicacion: (1: Si, 0: No)";
     std::cin >> verDetalle;
@@ -342,12 +349,13 @@ void consultaPublicaciones(){
         std::cin >> codigoPublicacion;
         std::cin.ignore();
         std::cout << "Detalle del inmueble:\n";
-        //TODO: DTInmueble = Controlador->detalleInmueblePublicacion(codigoPublicacion): DTInmueble
+        DTInmueble dt= factory->getIControladorPublicacion()->detalleInmueblePublicacion(codigoPublicacion);
         //Mostrarlo:
         // Si es apartamento-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, piso: xx, ascensor: Si/No, gastos comunes: yyy"
         // Si es casa-> "Codigo: aaa, direccion: bbb, nro. puerta: ccc, superficie: xx m2, consturccion: dddd, PH: Si/No, Tipo de techo: Liviano/A dos aguas/Plano"
     }
 }
+
 void eliminarInmueble(){
 
     Factory* factory = Factory::getInstance();
@@ -378,7 +386,7 @@ void suscribirseNotificaciones(){
 }
 
 void consultaNotificaciones(){
-
+    
 }
 
 void eliminarSuscripciones(){

@@ -81,9 +81,3 @@ Inmueble* ManejadorPublicacion::getInmueble(int id) {
 //     return nullptr;
 // }
 
-// Method to add Casa (which inherits from Inmueble)
-void ManejadorPublicacion::agregarCasa(Casa* casa) {
-    if (casa != nullptr) {
-        this->inmuebles[casa->getCodigo()] = casa;
-    }
-}

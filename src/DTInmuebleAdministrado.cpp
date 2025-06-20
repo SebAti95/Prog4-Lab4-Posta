@@ -14,7 +14,7 @@ std::string DTInmuebleAdministrado::getDireccion() const {
     return direccion;
 }
 
-DTFecha* DTInmuebleAdministrado::getFechaComienzo(){
+DTFecha* DTInmuebleAdministrado::getFechaComienzo() const{
     return fechaComienzo;
 }
 
