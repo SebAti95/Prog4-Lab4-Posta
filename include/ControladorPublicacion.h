@@ -36,7 +36,7 @@ class ControladorPublicacion : public IPublicacion {
         std::set<DTPublicacion> listarPublicacion(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble);
         void eliminarInmueble(int codigoInmueble);
         std::set<DTUsuario> listarInmobiliarias();
-        std::set<std::string> listarNombreInmobiliarias()
+        std::set<std::string> listarNombreInmobiliarias();
 };
 
 #endif                      

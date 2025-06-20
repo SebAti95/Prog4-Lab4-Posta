@@ -22,6 +22,7 @@ class AdministraPropiedad {
         DTFecha* getFecha();
         bool puedeCrear(TipoPublicacion tipo,DTFecha* fecha);
         void eliminarPublicacionesAsoc();
+        void eliminarInmobiliaria();
         bool inmobiliariaAsociada(Inmobiliaria* inm);
         void agregarPublicacion(Publicacion* pub);
 };

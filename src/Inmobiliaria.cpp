@@ -47,6 +47,10 @@ AdministraPropiedad* Inmobiliaria::crearPub(int codigoInm, TipoPublicacion tipo,
         return nullptr;
 }
 
+void Inmobiliaria::eliminarAdministracion(AdministraPropiedad* administracion) {
+    //this->propiedadesAdministradas.erase(administracion)));
+}
+
 std::set<DTInmuebleListado> Inmobiliaria::getInmbueblesNoAdminPropietario() {
     std::set<DTInmuebleListado> inmueblesNoAdministrados;
     for (std::map<std::string,Propietario*>::iterator i = this->propietariosRepresentados.begin(); i != this->propietariosRepresentados.end(); ++i) { //recorrer los propietarios asociados a la inm

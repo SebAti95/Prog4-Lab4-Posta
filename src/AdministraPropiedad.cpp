@@ -75,9 +75,12 @@ void AdministraPropiedad::eliminarPublicacionesAsoc() {
             delete pair.second;
         }
     }
-    
     // Clear the map
     publicaciones.clear();
+}
+
+void AdministraPropiedad::eliminarInmobiliaria() {
+    this->inmobiliaria->eliminarAdministracion(this);
 }
 
 bool AdministraPropiedad::inmobiliariaAsociada(Inmobiliaria* inm) {

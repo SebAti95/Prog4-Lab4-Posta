@@ -51,5 +51,7 @@ void Propietario::removeInmueble(int codigoInmueble) {
 }
 
 void Propietario::asociarInmueble(Inmueble* inmueble, int codigo) {
+    //Inmueble* inmCopia = inmueble;
+    //this->inmuebles[codigo] = inmCopia;
     this->inmuebles[codigo] = inmueble;
 }
