@@ -20,6 +20,7 @@ class Inmobiliaria : public Usuario {
         std::string direccion;
         std::string url;
         std::string telefono;
+        std::set<ISuscriptor*> suscriptores;
         std::map<std::string,Propietario*> propietariosRepresentados;
         std::vector<AdministraPropiedad*> propiedadesAdministradas;
         
@@ -30,15 +31,15 @@ class Inmobiliaria : public Usuario {
         std::string getUrl();
         std::string getTelefono();
         std::set<DTInmuebleAdministrado> coleccionInmuebles();
-        void agregar(ISuscriptor o);
-        void eliminar(ISuscriptor o);
+        void agregar(ISuscriptor* o);
+        void eliminar(ISuscriptor* o);
         AdministraPropiedad* crearPub(int codigoInmueble, TipoPublicacion TipoPublicacion, DTFecha* fecha);
         void eliminarAdministracion(AdministraPropiedad* administracion);
         DTUsuario getDTUsuario();
         //caso nuevo
         std::set<DTInmuebleListado> getInmbueblesNoAdminPropietario();
         void altaAdministracionPropiedad(Inmueble* inmueble, DTFecha* fechaActual);
-
+        bool UsuarioSuscrito(std::string nick);
         void representarPropInm(Propietario* p);
 };
 

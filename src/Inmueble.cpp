@@ -1,4 +1,5 @@
 #include "../include/Inmueble.h"
+#include <algorithm>
 
 Inmueble::Inmueble(int codigo, std::string direccion, int numeroPuerta, int superficie, int anoConstruccion, Propietario* propietario) {
     this->codigo = codigo;
@@ -64,3 +65,10 @@ void Inmueble::setPropietario(Propietario* propietario) {
 Propietario* Inmueble::getPropietario(){
     return this->propietario;
 };
+
+void Inmueble::eliminarAdministracion(AdministraPropiedad* administracion) {
+    auto it = std::find(this->administraciones.begin(), this->administraciones.end(), administracion);
+    if (it != this->administraciones.end()) {
+        this->administraciones.erase(it);
+    }
+}

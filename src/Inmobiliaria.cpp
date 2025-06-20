@@ -1,4 +1,5 @@
 #include "../include/Inmobiliaria.h"
+#include <algorithm>
 
 Inmobiliaria::Inmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion, std::string url, std::string telefono) : Usuario(nickname, contrasena, nombre, email) {
     this->direccion = direccion;
@@ -48,7 +49,10 @@ AdministraPropiedad* Inmobiliaria::crearPub(int codigoInm, TipoPublicacion tipo,
 }
 
 void Inmobiliaria::eliminarAdministracion(AdministraPropiedad* administracion) {
-    //this->propiedadesAdministradas.erase(administracion)));
+    auto it = std::find(this->propiedadesAdministradas.begin(), this->propiedadesAdministradas.end(), administracion);
+    if (it != this->propiedadesAdministradas.end()) {
+        this->propiedadesAdministradas.erase(it);
+    }
 }
 
 std::set<DTInmuebleListado> Inmobiliaria::getInmbueblesNoAdminPropietario() {
@@ -79,6 +83,22 @@ std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
     return inmueblesAdministrados;
 }
 
+bool Inmobiliaria::UsuarioSuscrito(std::string nick) {
+    for (std::set<ISuscriptor*>::iterator it = this->suscriptores.begin(); it != this->suscriptores.end(); ++it) {
+        if ((*it)->getNickname() == nick) {
+            return true;
+        }
+    }
+    return false;
+}
+
 void Inmobiliaria::representarPropInm(Propietario* p){
     this->propietariosRepresentados.insert(std::make_pair(p->getNick(), p));
+}
+
+void Inmobiliaria::agregar(ISuscriptor* o) {
+    this->suscriptores.insert(o);
+}
+void Inmobiliaria::eliminar(ISuscriptor* o) {
+    this->suscriptores.erase(o);
 }

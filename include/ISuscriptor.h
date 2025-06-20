@@ -4,8 +4,12 @@
 
 class ISuscriptor {
     public:
-        virtual void notificar(std::string codigoInmueble) = 0; 
+        virtual void notificar(DTNotificacion notificacion) = 0; 
         virtual ~ISuscriptor() {} 
+        virtual std::string getNickname() const = 0;
+        virtual std::set<DTNotificacion> getNotificaciones() const = 0;
+        virtual std::set<std::string> getInmobiliariasSuscritas() const = 0;
+        virtual void eliminarSuscripcion(std::string nombreInmobiliaria) = 0;
 };
 
 #endif

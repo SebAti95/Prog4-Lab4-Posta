@@ -18,6 +18,7 @@
 #include "ManejadorUsuario.h"
 #include "Factory.h"
 #include "ControladorFechaActual.h"
+#include "DTNotificacion.h"
 
 class ControladorPublicacion : public IPublicacion {
     private:
@@ -36,7 +37,12 @@ class ControladorPublicacion : public IPublicacion {
         std::set<DTPublicacion> listarPublicacion(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble);
         void eliminarInmueble(int codigoInmueble);
         std::set<DTUsuario> listarInmobiliarias();
-        std::set<std::string> listarNombreInmobiliarias();
+        std::set<std::string> listarNombreInmobiliarias(std::string nick);
+        void suscribirse(std::set<std::string>, std::string nick, std::string tipoAdmin);
+        std::set<DTNotificacion> listarNotificaciones(std::string nick, std::string tipoAdmin);
+        std::set<std::string> seleccionarSuscripcion(std::string nick, std::string tipoAdmin);
+        void eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick, std::string tipoAdmin);
+        DTInmueble detalleInmueblePublicacion(int codigoPublicacion);
 };
 
 #endif                      

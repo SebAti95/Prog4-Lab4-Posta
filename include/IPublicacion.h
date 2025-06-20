@@ -20,6 +20,7 @@ public:
     virtual void eliminarInmueble(int codigoInmueble) = 0;
     virtual void altaAdministraPropiedad(std::string nicknameInmobiliaria, int codigoInmueble) = 0;
     virtual std::set<DTInmuebleListado> listarInmueblesNoAdministrados(std::string nickInmobiliaria) = 0;
+    virtual DTInmueble detalleInmueblePublicacion(int codigoPublicacion);
 };
 
 #endif 

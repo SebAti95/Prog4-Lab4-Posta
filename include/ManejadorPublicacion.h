@@ -4,11 +4,9 @@
 #include <map>
 #include <string>
 #include "Publicacion.h"
-#include "Inmueble.h"
 #include "Inmobiliaria.h"
+#include "Casa.h"
 
-// Forward declaration
-class Casa;
 class ManejadorPublicacion {
     private:
         static ManejadorPublicacion* instance;
@@ -24,7 +22,5 @@ class ManejadorPublicacion {
     void eliminarInmueble(Inmueble* inmueble);
     Publicacion* getPublicacion(int codigo);
     Inmueble* getInmueble(int id);
-    void agregarCasa(Casa* casa);
 };
-
 #endif

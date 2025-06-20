@@ -23,8 +23,8 @@ DTUsuario Propietario::getDTUsuario() {
     return DTUsuario(this->getNick(), this->getNombre());
 };
 
-void Propietario::notificar(std::string codigoInmueble) {
-    this->publicacionesSuscritas.push_back(codigoInmueble);
+void Propietario::notificar(DTNotificacion notificacion) {
+    this->publicacionesSuscritas.push_back(notificacion.getCodigoPub());
 };
 
 std::set<DTInmuebleListado> Propietario::getInmueblesNoAdmin(Inmobiliaria* inm) {
@@ -54,4 +54,32 @@ void Propietario::asociarInmueble(Inmueble* inmueble, int codigo) {
     //Inmueble* inmCopia = inmueble;
     //this->inmuebles[codigo] = inmCopia;
     this->inmuebles[codigo] = inmueble;
+}
+
+void Propietario::agregarSuscripcion(std::string nombreInmobiliaria) {
+    this->inmobiliariasSuscritas.push_back(nombreInmobiliaria);
+}
+
+std::set<DTNotificacion> Propietario::getNotificaciones() const {
+    std::set<DTNotificacion> notificacionesSet;
+    for (std::vector<DTNotificacion>::const_iterator it = this->notificaciones.begin(); it != this->notificaciones.end(); ++it) {
+        const DTNotificacion& notificacion = *it;
+        notificacionesSet.insert(notificacion);
+    }
+    return notificacionesSet;
+}
+
+std::set<std::string> Propietario::getInmobiliariasSuscritas() const {
+    std::set<std::string> inmobiliariasSet;
+    for (std::vector<std::string>::const_iterator it = this->inmobiliariasSuscritas.begin(); it != this->inmobiliariasSuscritas.end(); ++it) {
+        inmobiliariasSet.insert(*it);
+    }
+    return inmobiliariasSet;
+}
+
+void Propietario::eliminarSuscripcion(std::string nombreInmobiliaria) {
+    std::vector<std::string>::iterator it = std::find(this->inmobiliariasSuscritas.begin(), this->inmobiliariasSuscritas.end(), nombreInmobiliaria);
+    if (it != this->inmobiliariasSuscritas.end()) {
+        this->inmobiliariasSuscritas.erase(it);
+    }
 }

@@ -13,9 +13,10 @@ private:
     std::string texto;
     float precio;
     bool activa;
+    AdministraPropiedad* ap;
 
 public:
-    Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::string texto, float precio, bool activa);
+    Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::string texto, float precio, bool activa, AdministraPropiedad* ap);
     ~Publicacion();
     int getCodigo();
     DTFecha* getFecha();

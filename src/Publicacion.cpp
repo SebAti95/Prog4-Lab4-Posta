@@ -7,6 +7,7 @@ Publicacion::Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::
     this->texto = texto;
     this->precio = precio;
     this->activa = activa;
+    this->ap=ap;
 }
 
 Publicacion::~Publicacion() {
