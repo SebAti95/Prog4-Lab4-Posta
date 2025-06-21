@@ -10,7 +10,7 @@ AdministraPropiedad::AdministraPropiedad(DTFecha* fecha) {
 */
 
 AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTFecha* fecha) {
-    this->fecha = new DTFecha(*fecha); // Assuming DTFecha has a copy constructor
+    this->fecha = new DTFecha(fecha); // Assuming DTFecha has a copy constructor
     this->inmobiliaria = inm;
     this->inmueble = inmue;
     
