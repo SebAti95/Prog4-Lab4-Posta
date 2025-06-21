@@ -51,3 +51,6 @@ DTPublicacion Publicacion::getDTPublicacion() {
     return DTPublicacion(this->codigo, this->fecha, this->texto, this->precio, nombreInmobiliaria);
 }
 
+void Publicacion::setActiva(bool valor) {
+    this->activa = valor;
+}

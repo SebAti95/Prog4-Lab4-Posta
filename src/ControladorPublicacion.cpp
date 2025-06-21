@@ -35,6 +35,7 @@ std::set<DTInmuebleAdministrado> ControladorPublicacion::listarInmueblesAdminist
 }
 
 bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio) {
+    int codigoPub;
     ManejadorUsuario* mu = ManejadorUsuario::getInstance();
     Inmobiliaria* inm = mu->getInmobiliaria(nicknameInmobiliaria);
     ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
@@ -44,7 +45,9 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
     AdministraPropiedad* admin = inm->crearPub(codigoInmueble, tipoPublicacion, fechaActual);
     bool exito = admin != nullptr;
     if(exito){
-        Publicacion* p = new Publicacion(this->codigoUltimaPublicacion++, fechaActual, tipoPublicacion, texto, precio, true, admin);
+        codigoPub = this->codigoUltimaPublicacion;
+        this->codigoUltimaPublicacion++;
+        Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, false, admin);
         admin->agregarPublicacion(p);
         m->agregarPublicacion(p);
     }

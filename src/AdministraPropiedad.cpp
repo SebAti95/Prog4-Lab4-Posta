@@ -94,6 +94,13 @@ bool AdministraPropiedad::inmobiliariaAsociada(Inmobiliaria* inm) {
 }
 
 void AdministraPropiedad::agregarPublicacion(Publicacion* p) {
+    for (std::map<int, Publicacion*>::iterator it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it) {
+        if ((*it).second->getActiva() == true && (*it).second->getFecha() < p->getFecha()) {
+            (*it).second->setActiva(false);
+            p->setActiva(true);
+            break;
+        }
+    }
     int codigo = p->getCodigo();
     this->publicaciones[codigo]=p;
 }

@@ -29,6 +29,7 @@ public:
     float getPrecio();
     bool getActiva();
     DTPublicacion getDTPublicacion();
+    void setActiva(bool valor);
 };
 
 #endif
