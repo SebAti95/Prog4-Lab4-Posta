@@ -114,12 +114,11 @@ std::set<std::string> ControladorPublicacion::listarNombreInmobiliarias(std::str
     return nombres;
 }
 
-/*
 void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliarias, std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = m->getCliente(nick);
     if (admin == nullptr) {
-        admin = m->getPropietarios(nick);
+        admin = m->getPropietario(nick);
     }
     for (std::set<std::string>::iterator it = nombresInmobiliarias.begin(); it != nombresInmobiliarias.end(); ++it) {
         Inmobiliaria* inm = m->getInmobiliaria(*it);
@@ -135,17 +134,17 @@ std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::strin
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = m->getCliente(nick);
     if (admin == nullptr) {
-        admin = m->getPropietarios(nick);
+        admin = m->getPropietario(nick);
     }
     std::set<DTNotificacion> notificaciones = admin->getNotificaciones();
+    return notificaciones;
 }   
 
 std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
-    ISuscriptor* admin = nullptr;
    ISuscriptor* admin = m->getCliente(nick);
     if (admin == nullptr) {
-        admin = m->getPropietarios(nick);
+        admin = m->getPropietario(nick);
     }
     std::set<std::string> nombresInmobiliarias;
     for(std::set<std::string>::iterator it = admin->getInmobiliariasSuscritas().begin(); it != admin->getInmobiliariasSuscritas().end(); ++it) {
@@ -156,10 +155,9 @@ std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string
 
 void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
-    ISuscriptor* admin = nullptr;
     ISuscriptor* admin = m->getCliente(nick);
     if (admin == nullptr) {
-        admin = m->getPropietarios(nick);
+        admin = m->getPropietario(nick);
     }
     for (std::set<std::string>::iterator it = nombresInmobiliarias.begin(); it != nombresInmobiliarias.end(); ++it) {
         Inmobiliaria* inm = m->getInmobiliaria(*it);
@@ -167,7 +165,6 @@ void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresIn
         admin->eliminarSuscripcion(*it);
     }
 }
-*/
 
 DTInmueble* ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
     ManejadorPublicacion* m = ManejadorPublicacion::getInstance();

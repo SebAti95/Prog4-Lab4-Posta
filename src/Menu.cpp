@@ -427,7 +427,6 @@ void eliminarInmueble(){
 }
 
 void suscribirseNotificaciones(){
-    /*
     Factory* factory = Factory::getInstance();
     std::cout << "Ingrese su nickname: ";
     std::string nick;
@@ -450,7 +449,6 @@ void suscribirseNotificaciones(){
         input.erase(0, pos + delimiter.length());
     }
     factory->getIControladorPublicacion()->suscribirse(nombresSeleccionados, nick);
-    */
 }
 
 void consultaNotificaciones(){
@@ -474,7 +472,6 @@ void consultaNotificaciones(){
 }
 
 void eliminarSuscripciones(){
-    /*
     Factory* factory = Factory::getInstance();
     std::cout << "Ingrese su nickname: ";
     std::string nick;
@@ -497,11 +494,10 @@ void eliminarSuscripciones(){
         input.erase(0, pos + delimiter.length());
     }
     factory->getIControladorPublicacion()->eliminarSuscripcion(nombresSeleccionados, nick);
-    */
+
 }
 
 void altaAdministracionPropiedad(){
-    /*
     Factory* factory = Factory::getInstance();
 
     std::cout << "Lista de Inmobiliarias:\n";
@@ -534,7 +530,6 @@ void altaAdministracionPropiedad(){
 
     //TODO: Controlador->altaAdministraPropiedad(nicknameInmobiliaria, codigoInmueble);
     factory->getIControladorPublicacion()->altaAdministraPropiedad(nicknameInmobiliaria, codigoInmueble);
-    */
 }
 
 void cargarDatos(){
