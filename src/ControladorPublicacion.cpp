@@ -130,18 +130,18 @@ void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliar
 }
 
 std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::string nick) {
-    ManejadorUsuario* m = ManejadorUsuario::getInstance();
+    /*ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
     if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
         admin = m->getCliente(nick);
     } else {
         admin = m->getPropietario(nick);
     }
-    std::set<DTNotificacion> notificaciones = admin->getNotificaciones();
+    std::set<DTNotificacion> notificaciones = admin->getNotificaciones();*/
 }   
 
 std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string nick) {
-    ManejadorUsuario* m = ManejadorUsuario::getInstance();
+    /*ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
     if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
         admin = m->getCliente(nick);
@@ -152,11 +152,11 @@ std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string
     for(std::set<std::string>::iterator it = admin->getInmobiliariasSuscritas().begin(); it != admin->getInmobiliariasSuscritas().end(); ++it) {
         nombresInmobiliarias.insert(*it);
     }
-    return nombresInmobiliarias;
+    return nombresInmobiliarias;*/
 }
 
 void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick) {
-    ManejadorUsuario* m = ManejadorUsuario::getInstance();
+    /*ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
     if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
         admin = m->getCliente(nick);
@@ -167,7 +167,7 @@ void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresIn
         Inmobiliaria* inm = m->getInmobiliaria(*it);
         inm->eliminar(admin);
         admin->eliminarSuscripcion(*it);
-    }
+    }*/
 }
 
 
