@@ -17,3 +17,7 @@ TipoTecho DTCasa::getTecho() {
 DTCasa::~DTCasa(){
     
 }
+
+std::string DTCasa::getTipoInmueble() const {
+    return "Casa";
+}

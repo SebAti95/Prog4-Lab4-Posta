@@ -15,6 +15,7 @@ class Casa : public Inmueble {
         bool getEsPH();
         TipoTecho getTecho();
         TipoInmueble getTipoInmueble();
+        virtual DTInmueble* getDTInmueble();
 };
 
 #endif

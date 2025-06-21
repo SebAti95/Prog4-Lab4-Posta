@@ -17,6 +17,7 @@ class Apartamento : public Inmueble {
         bool getTieneAscensor();
         float getGastosComunes();
         TipoInmueble getTipoInmueble();
+        virtual DTInmueble* getDTInmueble();
 };
 
 #endif

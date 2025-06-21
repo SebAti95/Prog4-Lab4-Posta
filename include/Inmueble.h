@@ -31,7 +31,7 @@ class Inmueble {
         int getAnoConstruccion();
         void setPropietario(Propietario* propietario);
         Propietario* getPropietario();
-        DTInmueble getDTInmueble();
+        virtual DTInmueble* getDTInmueble() = 0;
         void removePropietario();
         void eliminarAdministracion(AdministraPropiedad* administracion);
         bool esAdministrado(Inmobiliaria* inm);

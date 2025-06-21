@@ -24,6 +24,7 @@ class ControladorPublicacion : public IPublicacion {
     private:
         static ControladorPublicacion* instance;
         ControladorPublicacion(); // Private constructor for singleton
+        int codigoUltimaPublicacion;
 
     public:
         static ControladorPublicacion* getInstance();
@@ -36,15 +37,16 @@ class ControladorPublicacion : public IPublicacion {
         void altaAdministraPropiedad(std::string nicknameInmobiliaria, int codigoInmueble);
         std::set<DTPublicacion> listarPublicacion(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble);
         void eliminarInmueble(int codigoInmueble);
-        std::set<DTUsuario> listarInmobiliarias();
         std::set<std::string> listarNombreInmobiliarias(std::string nick);
-        void suscribirse(std::set<std::string>, std::string nick, std::string tipoAdmin);
-        std::set<DTNotificacion> listarNotificaciones(std::string nick, std::string tipoAdmin);
-        std::set<std::string> seleccionarSuscripcion(std::string nick, std::string tipoAdmin);
-        void eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick, std::string tipoAdmin);
-        DTInmueble detalleInmueblePublicacion(int codigoPublicacion);
+
+        void suscribirse(std::set<std::string>, std::string nick);
+        std::set<DTNotificacion> listarNotificaciones(std::string nick);
+        std::set<std::string> seleccionarSuscripcion(std::string nick);
+        void eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick);
+        
+        DTInmueble* detalleInmueblePublicacion(int codigoPublicacion);
         std::set<DTInmuebleListado> listarInmuebles();
-        DTInmueble detalleInmueble(int codigoInmueble);
+        DTInmueble* detalleInmueble(int codigoInmueble);
 };
 
 #endif                      

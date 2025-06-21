@@ -35,7 +35,7 @@ AdministraPropiedad* Inmobiliaria::crearPub(int codigoInm, TipoPublicacion tipo,
     for (std::vector<AdministraPropiedad*>::iterator it = this->propiedadesAdministradas.begin(); it != this->propiedadesAdministradas.end(); ++it) {
         Inmueble* i = (*it)->getInmueble();
         int codigo = i->getCodigo();
-        if(codigo==codigoInm){
+        if(codigo == codigoInm){
             admin = (*it);
             break;
         }

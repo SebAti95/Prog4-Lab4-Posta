@@ -5,7 +5,9 @@
 ControladorPublicacion* ControladorPublicacion::instance = nullptr;
 
 // Constructor
-ControladorPublicacion::ControladorPublicacion() { }
+ControladorPublicacion::ControladorPublicacion() { 
+    this->codigoUltimaPublicacion=0;
+}
 
 // Singleton getInstance method
 ControladorPublicacion* ControladorPublicacion::getInstance() {
@@ -23,17 +25,6 @@ ControladorPublicacion::~ControladorPublicacion() {
 // Implement the rest of the methods here
 // These would be stubs for now until full implementation is needed
 
-std::set<DTUsuario> ControladorPublicacion::listarInmobiliarias() {
-    // Implementation pending
-    std::set<DTUsuario> res;
-    ManejadorUsuario* m = ManejadorUsuario::getInstance();
-    std::set<Inmobiliaria*> li = m->getInmobiliarias();  
-    for(std::set<Inmobiliaria*>::iterator i = li.begin(); i != li.end(); ++i) { // recorro inmobiliarias
-        DTUsuario dt = (*i)->getDTUsuario();
-        res.insert(dt);
-    }
-    return res;//std::set<DTUsuario>();
-}
 
 std::set<DTInmuebleAdministrado> ControladorPublicacion::listarInmueblesAdministrados(std::string nicknameInmobiliaria) {
     std::set<DTInmuebleAdministrado> res;
@@ -53,7 +44,7 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
     AdministraPropiedad* admin = inm->crearPub(codigoInmueble, tipoPublicacion, fechaActual);
     bool exito = admin != nullptr;
     if(exito){
-        Publicacion* p = new Publicacion(codigoInmueble, fechaActual, tipoPublicacion, texto, precio, true, admin);
+        Publicacion* p = new Publicacion(this->codigoUltimaPublicacion++, fechaActual, tipoPublicacion, texto, precio, true, admin);
         admin->agregarPublicacion(p);
         m->agregarPublicacion(p);
     }
@@ -65,6 +56,7 @@ std::set<DTPublicacion> ControladorPublicacion::listarPublicacion(TipoPublicacio
     std::set<DTPublicacion> publicaciones = m->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
     return publicaciones;
 }
+
 
 void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     ManejadorPublicacion* manejPub = ManejadorPublicacion::getInstance();
@@ -116,10 +108,10 @@ std::set<std::string> ControladorPublicacion::listarNombreInmobiliarias(std::str
     return nombres;
 }
 
-void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliarias, std::string nick, std::string tipoAdmin) {
+void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliarias, std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
-    if (tipoAdmin != "cliente") {
+    if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
         admin = m->getCliente(nick);
     } else {
         admin = m->getPropietario(nick);
@@ -134,10 +126,10 @@ void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliar
     }
 }
 
-std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::string nick, std::string tipoAdmin) {
+std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
-    if (tipoAdmin != "cliente") {
+    if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
         admin = m->getCliente(nick);
     } else {
         admin = m->getPropietario(nick);
@@ -145,10 +137,10 @@ std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::strin
     std::set<DTNotificacion> notificaciones = admin->getNotificaciones();
 }   
 
-std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string nick, std::string tipoAdmin) {
+std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
-    if (tipoAdmin != "cliente") {
+    if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
         admin = m->getCliente(nick);
     } else {
         admin = m->getPropietario(nick);
@@ -160,10 +152,10 @@ std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string
     return nombresInmobiliarias;
 }
 
-void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick, std::string tipoAdmin) {
+void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
-    if (tipoAdmin != "cliente") {
+    if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
         admin = m->getCliente(nick);
     } else {
         admin = m->getPropietario(nick);
@@ -176,7 +168,7 @@ void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresIn
 }
 
 
-DTInmueble ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
+DTInmueble* ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
     ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
     Publicacion* pub = m->getPublicacion(codigoPublicacion);
     Inmueble* inm = pub->getAdmin()->getInmueble();
@@ -189,7 +181,7 @@ std::set<DTInmuebleListado> ControladorPublicacion::listarInmuebles() {
     return inmuebles;
 }
 
-DTInmueble ControladorPublicacion::detalleInmueble(int codigoInmueble) {
+DTInmueble* ControladorPublicacion::detalleInmueble(int codigoInmueble) {
     ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
     Inmueble* inmueble = m->getInmueble(codigoInmueble);
     return inmueble->getDTInmueble();

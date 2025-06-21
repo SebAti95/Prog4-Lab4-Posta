@@ -14,6 +14,7 @@ class DTApartamento : public DTInmueble {
         bool getTieneAscensor();
         float getGastosComunes();
         virtual ~DTApartamento();
+        virtual std::string getTipoInmueble() const;
 };
 
 #endif

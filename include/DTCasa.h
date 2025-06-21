@@ -13,6 +13,7 @@ class DTCasa : public DTInmueble {
         bool getEsPH();
         TipoTecho getTecho();
         virtual ~DTCasa();
+        virtual std::string getTipoInmueble() const;
 };
 
 #endif

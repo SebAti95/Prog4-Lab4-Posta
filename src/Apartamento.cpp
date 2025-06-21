@@ -1,4 +1,5 @@
 #include "../include/Apartamento.h"
+#include "../include/DTApartamento.h"
 
 Apartamento::Apartamento(int piso, bool tieneAscensor, float gastosComunes) 
     : Inmueble(0, "", 0, 0, 0, nullptr) {
@@ -26,5 +27,9 @@ float Apartamento::getGastosComunes() {
 }
 TipoInmueble Apartamento::getTipoInmueble() {
     return TipoInmueble::Apartamento;
+}
+
+DTInmueble* Apartamento::getDTInmueble() {
+    return new DTApartamento(getCodigo(), getDireccion(), getNumeroPuerta(), getSuperficie(), getAnoConstruccion(), piso, tieneAscensor, gastosComunes);
 }
 

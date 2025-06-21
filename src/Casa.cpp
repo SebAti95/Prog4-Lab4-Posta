@@ -1,4 +1,5 @@
 #include "../include/Casa.h"
+#include "../include/DTCasa.h"
 
 Casa::Casa(bool esPH, TipoTecho techo) : Inmueble(0, "", 0, 0, 0, nullptr) {
     this->esPH = esPH;
@@ -22,4 +23,8 @@ TipoTecho Casa::getTecho() {
 }
 TipoInmueble Casa::getTipoInmueble() {
     return TipoInmueble::Casa;
+}
+
+DTInmueble* Casa::getDTInmueble() {
+    return new DTCasa(getCodigo(), getDireccion(), getNumeroPuerta(), getSuperficie(), getAnoConstruccion(), esPH, techo);
 }

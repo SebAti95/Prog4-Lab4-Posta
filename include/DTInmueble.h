@@ -18,6 +18,8 @@ class DTInmueble {
         int getSuperficie();
         int getAnioConstruccion();
         virtual ~DTInmueble();
+        virtual std::string getTipoInmueble() const = 0; 
+        
 };
 
 

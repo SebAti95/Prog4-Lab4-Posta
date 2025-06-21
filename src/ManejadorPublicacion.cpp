@@ -81,8 +81,8 @@ std::set<DTInmuebleListado> ManejadorPublicacion::listarInmuebles() {
     for (std::map<int, Inmueble*>::const_iterator it = this->inmuebles.begin(); it != this->inmuebles.end(); ++it) {
         const std::pair<int, Inmueble*>& pair = *it;
         Inmueble* inm = pair.second;
-        DTInmueble dtInm = inm->getDTInmueble();
-        DTInmuebleListado InmList = DTInmuebleListado(dtInm.getCodigo(), dtInm.getDireccion(), inm->getPropietario()->getNickname());
+        DTInmueble* dtInm = inm->getDTInmueble();
+        DTInmuebleListado InmList = DTInmuebleListado(dtInm->getCodigo(), dtInm->getDireccion(), inm->getPropietario()->getNickname());
         inmueblesSet.insert(InmList);
     }
     return inmueblesSet;

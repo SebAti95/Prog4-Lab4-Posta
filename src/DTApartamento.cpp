@@ -22,3 +22,7 @@ float DTApartamento::getGastosComunes() {
 DTApartamento::~DTApartamento(){
 
 }
+
+std::string DTApartamento::getTipoInmueble() const {
+    return "Apartamento";
+}
