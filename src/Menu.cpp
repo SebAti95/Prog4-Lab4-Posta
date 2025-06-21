@@ -261,7 +261,7 @@ void altaPublicacion(){
     std::set<DTInmuebleAdministrado> ColInmueblesAdmin = factory->getIControladorPublicacion()->listarInmueblesAdministrados(nicknameInmobiliaria);
     std::set<DTInmuebleAdministrado>::iterator it;
     it = ColInmueblesAdmin.begin();
-    DTFecha fec = (*it)->getFechaComienzo();
+    DTFecha fec = (*it).getFechaComienzo();
     std::cout << fec.getAnio();
     //std::cout << (*it).getFechaComienzo().toString();
 
