@@ -112,10 +112,10 @@ std::set<std::string> ControladorPublicacion::listarNombreInmobiliarias(std::str
 }
 
 void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliarias, std::string nick) {
-    ManejadorUsuario* m = ManejadorUsuario::getInstance();
+    /*ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = nullptr;
     if (Cliente* cliente = dynamic_cast<Cliente*>(admin)) {
-        admin = m->getCliente(nick);
+        admin = m->getCliente(cliente->getNick());
     } else {
         admin = m->getPropietario(nick);
     }
@@ -126,7 +126,7 @@ void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliar
         if (propietario) {
             propietario->agregarSuscripcion(*it);
         }
-    }
+    }*/
 }
 
 std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::string nick) {
