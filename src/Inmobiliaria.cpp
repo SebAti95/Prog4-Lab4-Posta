@@ -1,5 +1,6 @@
 #include "../include/Inmobiliaria.h"
 #include <algorithm>
+#include <iostream>
 
 Inmobiliaria::Inmobiliaria(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string direccion, std::string url, std::string telefono) : Usuario(nickname, contrasena, nombre, email) {
     this->direccion = direccion;
@@ -74,6 +75,7 @@ std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
         Inmueble* inmueble = (*it)->getInmueble();
         if (inmueble != nullptr) {
             DTFecha* fechaComienzo = (*it)->getFecha();
+            std::cout <<fechaComienzo->toString();
             DTInmuebleAdministrado dt= DTInmuebleAdministrado(inmueble->getCodigo(), inmueble->getDireccion(), fechaComienzo);
             inmueblesAdministrados.insert(dt);
         }
