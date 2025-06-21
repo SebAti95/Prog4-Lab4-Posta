@@ -100,3 +100,9 @@ void Inmobiliaria::agregar(ISuscriptor* o) {
 void Inmobiliaria::eliminar(ISuscriptor* o) {
     this->suscriptores.erase(o);
 }
+
+AdministraPropiedad* Inmobiliaria::getAdm() {
+    std::vector<AdministraPropiedad*>::iterator it;
+    it = this->propiedadesAdministradas.begin();
+    return (*it);
+}

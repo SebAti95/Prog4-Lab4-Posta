@@ -41,6 +41,7 @@ class Inmobiliaria : public Usuario {
         void altaAdministracionPropiedad(Inmueble* inmueble, DTFecha* fechaActual);
         bool UsuarioSuscrito(std::string nick);
         void representarPropInm(Propietario* p);
+        AdministraPropiedad* getAdm();
 };
 
 #include "AdministraPropiedad.h"

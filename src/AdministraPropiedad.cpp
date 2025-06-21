@@ -13,8 +13,7 @@ AdministraPropiedad::AdministraPropiedad(DTFecha* fecha) {
 AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTFecha* fecha) {
     this->inmobiliaria = inm;
     this->inmueble = inmue;
-    this->fecha = new DTFecha(10, 10 , 10);
-    std::cout << "- Fecha: " << fecha->toString()  << std::endl;
+    this->fecha = new DTFecha(fecha);
     // Initialize the publicaciones map
     //this->publicaciones = std::map<int, Publicacion*>();
 
