@@ -169,8 +169,8 @@ void altaUsuario(){
                     std::set<DTUsuario> ColeccionPropietarios = factory->getIControladorUsuario()->listarPropietarios();
                     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
                     for (std::set<DTUsuario>::iterator it = ColeccionPropietarios.begin(); it != ColeccionPropietarios.end(); ++it) {
-                        std::string nick = it->getNickname(); // Dereference the iterator
-                        std::string nombre = it->getNombre(); // Dereference the iterator
+                        std::string nick = it->getNickname(); 
+                        std::string nombre = it->getNombre(); 
                         std::cout << "- Nickname: " << nick << ", Nombre: " << nombre << std::endl;
                     }
                     std::cout << "Nickname propietario a representar: ";
@@ -265,8 +265,8 @@ void altaPublicacion(){
             int codigo = it->getCodigo(); // Dereference the iterator
             // Get inmueble to access propietario information
             std::string dir=it->getDireccion();
-            DTFecha f=it->getFechaComienzo();
-            std::string fecha=f.toString();
+            DTFecha* f=it->getFechaComienzo();
+            std::string fecha=f->toString();
             std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", FechaComienzo: " << fecha << std::endl;
     }
 
@@ -506,8 +506,8 @@ void altaAdministracionPropiedad(){
     std::set<DTUsuario> ColInmobiliarias=factory->getIControladorUsuario()->listarInmobiliarias();
     //Recorrer la coleccion Mostrar "- Nickname: xx, Nombre: zz";
     for (std::set<DTUsuario>::iterator it = ColInmobiliarias.begin(); it != ColInmobiliarias.end(); ++it) {
-            std::string nick = it->getNickname(); // Dereference the iterator
-            std::string nombre = it->getNombre(); // Dereference the iterator
+            std::string nick = it->getNickname(); 
+            std::string nombre = it->getNombre(); 
             std::cout << "- Nickname: " << nick << ", Nombre: " << nombre << std::endl;
     }
     std::cout << "Nickname de la inmobiliaria: ";
