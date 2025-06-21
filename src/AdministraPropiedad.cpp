@@ -18,7 +18,8 @@ AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTF
     // Initialize the publicaciones map
     //this->publicaciones = std::map<int, Publicacion*>();
 
-    inmueble->asociarAdministracionPropiedad(this);
+    this->inmueble->asociarAdministracionPropiedad(this);
+    std::cout << "- Fecha: " << this->inmueble->getAdmin()->getFecha()->toString() << std::endl;
 }
 
 // Destructor implementation

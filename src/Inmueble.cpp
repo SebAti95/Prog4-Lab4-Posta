@@ -69,3 +69,9 @@ void Inmueble::eliminarAdministracion(AdministraPropiedad* administracion) {
         this->administraciones.erase(it);
     }
 }
+
+AdministraPropiedad* Inmueble::getAdmin() {
+    std::vector<AdministraPropiedad*>::iterator it;
+    it = this->administraciones.begin();
+    return (*it);
+}
