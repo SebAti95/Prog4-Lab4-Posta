@@ -178,7 +178,6 @@ void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresIn
 DTInmueble ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
     ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
     Publicacion* p=m->getPublicacion(codigoPublicacion);
-    Inmueble* 
     DTInmueble messi = p->getInmueble()->getDTInmueble();
     return messi;
 }
