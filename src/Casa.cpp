@@ -20,3 +20,6 @@ bool Casa::getEsPH() {
 TipoTecho Casa::getTecho() {
     return this->techo;
 }
+TipoInmueble Casa::getTipoInmueble() {
+    return TipoInmueble::Casa;
+}

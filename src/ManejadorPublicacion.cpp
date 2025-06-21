@@ -61,6 +61,33 @@ Inmueble* ManejadorPublicacion::getInmueble(int id) {
     return nullptr;
 }
 
+std::set<DTPublicacion> ManejadorPublicacion::listarPublicaciones(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble) {
+    std::set<DTPublicacion> publicacionesSet;
+    for (std::map<int, Publicacion*>::const_iterator it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it) {
+        const std::pair<int, Publicacion*>& pair = *it;
+        Publicacion* pub = pair.second;
+        if (pub->getTipo() == tipoPublicacion && 
+            pub->getPrecio() >= precioMinimo && 
+            pub->getPrecio() <= precioMaximo &&
+            pub->getAdmin()->getInmueble()->getTipoInmueble() == tipoInmueble) {
+            publicacionesSet.insert(pub->getDTPublicacion());
+        }
+    }
+    return publicacionesSet;
+}
+
+std::set<DTInmuebleListado> ManejadorPublicacion::listarInmuebles() {
+    std::set<DTInmuebleListado> inmueblesSet;
+    for (std::map<int, Inmueble*>::const_iterator it = this->inmuebles.begin(); it != this->inmuebles.end(); ++it) {
+        const std::pair<int, Inmueble*>& pair = *it;
+        Inmueble* inm = pair.second;
+        DTInmueble dtInm = inm->getDTInmueble();
+        DTInmuebleListado InmList = DTInmuebleListado(dtInm.getCodigo(), dtInm.getDireccion(), inm->getPropietario()->getNickname());
+        inmueblesSet.insert(InmList);
+    }
+    return inmueblesSet;
+}
+
 // Methods for managing Inmobiliaria objects
 // void ManejadorPublicacion::agregarInmobiliaria(Inmobiliaria* inmobiliaria) {
 //     if (inmobiliaria != nullptr) {

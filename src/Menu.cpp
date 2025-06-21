@@ -334,7 +334,7 @@ void consultaPublicaciones(){
             DTFecha f=it->getFecha();
             std::string fecha=f.toString();
             std::string txt=it->getTexto();
-            std::string precio=it->getPrecio();
+            float precio=it->getPrecio();
             std::string inm=it->getInmobiliaria();
             std::cout << "- Codigo: " << codigo << ", fecha:: " << fecha << ", texto: " << txt << ", precio: " << precio << ", inmobiliaria: " << inm << std::endl;
     }

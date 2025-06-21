@@ -24,4 +24,7 @@ bool Apartamento::getTieneAscensor() {
 float Apartamento::getGastosComunes() {
     return this->gastosComunes;
 }
+TipoInmueble Apartamento::getTipoInmueble() {
+    return TipoInmueble::Apartamento;
+}
 

@@ -14,6 +14,7 @@ class Casa : public Inmueble {
         ~Casa();
         bool getEsPH();
         TipoTecho getTecho();
+        TipoInmueble getTipoInmueble();
 };
 
 #endif

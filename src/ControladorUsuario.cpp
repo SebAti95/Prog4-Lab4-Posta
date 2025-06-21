@@ -4,7 +4,6 @@
 #include "../include/Inmobiliaria.h"
 #include "../include/ManejadorUsuario.h"
 #include "../include/ManejadorPublicacion.h"
-#include "../include/TipoTecho.h"
 
 // Initialize static instance pointer to nullptr
 ControladorUsuario* ControladorUsuario::instance = nullptr;
@@ -85,7 +84,7 @@ std::set<DTUsuario> ControladorUsuario::listarPropietarios() {
 void ControladorUsuario::altaCasa(std::string direccion, int numeroPuerta, float superficie, int anoConstruccion, bool esPH, TipoTecho techo) {
     this->codigoInmueble++;
     ManejadorPublicacion* manejadorPublicacion = ManejadorPublicacion::getInstance();
-    Casa* casa = new Casa(this->codigoInmueble, direccion, numeroPuerta, superficie, anoConstruccion, esPH, techo); 
+    class Casa* casa = new class Casa(this->codigoInmueble, direccion, numeroPuerta, superficie, anoConstruccion, esPH, techo);
     manejadorPublicacion->agregarInmueble(casa);
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstance();
     Propietario* propietario = manejadorUsuario->getPropietario(this->nicknamePropietario); 
@@ -96,7 +95,7 @@ void ControladorUsuario::altaCasa(std::string direccion, int numeroPuerta, float
 void ControladorUsuario::altaApartamento(std::string direccion, int numeroPuerta, float superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes) {
     this->codigoInmueble++;
     ManejadorPublicacion* manejadorPublicacion = ManejadorPublicacion::getInstance();
-    Apartamento* apto = new Apartamento(this->codigoInmueble, direccion, numeroPuerta, superficie, anoConstruccion, piso, tieneAscensor, gastosComunes); 
+    class Apartamento* apto = new class Apartamento(this->codigoInmueble, direccion, numeroPuerta, superficie, anoConstruccion, piso, tieneAscensor, gastosComunes);
     manejadorPublicacion->agregarInmueble(apto);
     ManejadorUsuario* manejadorUsuario = ManejadorUsuario::getInstance();
     Propietario* propietario = manejadorUsuario->getPropietario(this->nicknamePropietario); 

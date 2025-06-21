@@ -61,8 +61,9 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
 }
 
 std::set<DTPublicacion> ControladorPublicacion::listarPublicacion(TipoPublicacion tipoPublicacion, float precioMinimo, float precioMaximo, TipoInmueble tipoInmueble) {
-    // Implementation pending
-    return std::set<DTPublicacion>();
+    ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
+    std::set<DTPublicacion> publicaciones = m->listarPublicaciones(tipoPublicacion, precioMinimo, precioMaximo, tipoInmueble);
+    return publicaciones;
 }
 
 void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
@@ -176,9 +177,22 @@ void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresIn
 
 
 DTInmueble ControladorPublicacion::detalleInmueblePublicacion(int codigoPublicacion){
-    // ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
-    // Publicacion* p=m->getPublicacion(codigoPublicacion);
-    
+    ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
+    Publicacion* pub = m->getPublicacion(codigoPublicacion);
+    Inmueble* inm = pub->getAdmin()->getInmueble();
+    return inm->getDTInmueble();
+}
+
+std::set<DTInmuebleListado> ControladorPublicacion::listarInmuebles() {
+    ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
+    std::set<DTInmuebleListado> inmuebles = m->listarInmuebles(); // Use a public method to access inmuebles
+    return inmuebles;
+}
+
+DTInmueble ControladorPublicacion::detalleInmueble(int codigoInmueble) {
+    ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
+    Inmueble* inmueble = m->getInmueble(codigoInmueble);
+    return inmueble->getDTInmueble();
 }
 
 //hola soy seba :D

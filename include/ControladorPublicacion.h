@@ -43,6 +43,8 @@ class ControladorPublicacion : public IPublicacion {
         std::set<std::string> seleccionarSuscripcion(std::string nick, std::string tipoAdmin);
         void eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick, std::string tipoAdmin);
         DTInmueble detalleInmueblePublicacion(int codigoPublicacion);
+        std::set<DTInmuebleListado> listarInmuebles();
+        DTInmueble detalleInmueble(int codigoInmueble);
 };
 
 #endif                      

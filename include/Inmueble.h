@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "DTInmueble.h"
+#include "TipoInmueble.h"
 
 class AdministraPropiedad;
 
@@ -36,7 +37,7 @@ class Inmueble {
         bool esAdministrado(Inmobiliaria* inm);
         void asociarAdministracionPropiedad(AdministraPropiedad* adminPropiedad);
         std::vector<AdministraPropiedad*> getAdminis();
-
+        virtual TipoInmueble getTipoInmueble() = 0; 
 };
 
 #include "AdministraPropiedad.h"

@@ -4,6 +4,7 @@
 #include <vector>
 #include "DTFecha.h"
 #include "TipoPublicacion.h"
+#include "DTPublicacion.h"
 
 class AdministraPropiedad; // Forward declaration
 
@@ -24,8 +25,10 @@ public:
     DTFecha* getFecha();
     TipoPublicacion getTipo();
     std::string getTexto();
+    AdministraPropiedad* getAdmin();
     float getPrecio();
     bool getActiva();
+    DTPublicacion getDTPublicacion();
 };
 
 #endif
