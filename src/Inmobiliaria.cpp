@@ -12,7 +12,6 @@ Inmobiliaria::~Inmobiliaria() {
         delete propiedad;
     }
     this->propietariosRepresentados.clear();
-    delete this;
 }
 std::string Inmobiliaria:: getDireccion(){
     return this->direccion;

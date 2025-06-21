@@ -5,6 +5,8 @@
 #include "DTFecha.h"
 #include "TipoPublicacion.h"
 
+class AdministraPropiedad; // Forward declaration
+
 class Publicacion {
 private:
     int codigo;

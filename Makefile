@@ -17,6 +17,7 @@ SRCS = $(SRC_DIR)/main.cpp \
        $(SRC_DIR)/DTInmueble.cpp \
        $(SRC_DIR)/DTInmuebleAdministrado.cpp \
        $(SRC_DIR)/DTInmuebleListado.cpp \
+       $(SRC_DIR)/DTNotificacion.cpp \
        $(SRC_DIR)/DTPublicacion.cpp \
        $(SRC_DIR)/DTUsuario.cpp \
        $(SRC_DIR)/Factory.cpp \
@@ -25,6 +26,7 @@ SRCS = $(SRC_DIR)/main.cpp \
        $(SRC_DIR)/Inmobiliaria.cpp \
        $(SRC_DIR)/Inmueble.cpp \
        $(SRC_DIR)/Publicacion.cpp \
+       $(SRC_DIR)/IPublicacion.cpp \
        $(SRC_DIR)/ISuscriptor.cpp \
        $(SRC_DIR)/ManejadorUsuario.cpp \
        $(SRC_DIR)/Menu.cpp \

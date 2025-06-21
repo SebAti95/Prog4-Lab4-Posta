@@ -23,6 +23,7 @@ class Cliente : public Usuario, public ISuscriptor {
         std::string getDocumento();
         std::set<DTNotificacion> getNotificaciones() const;
         virtual void notificar(DTNotificacion notificacion);
+        virtual std::string getNickname() const;
         std::set<std::string> getInmobiliariasSuscritas() const;
         void eliminarSuscripcion(std::string nombreInmobiliaria);
 };

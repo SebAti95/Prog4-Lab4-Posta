@@ -9,7 +9,6 @@ Propietario::~Propietario(){
     this->publicacionesSuscritas.clear();
     //Eliminar cada uno de los inmuebles antes del clear...
     this->inmuebles.clear();
-    delete this;
 };
 
 std::string Propietario::getCuentaBancaria(){
@@ -26,6 +25,10 @@ DTUsuario Propietario::getDTUsuario() {
 void Propietario::notificar(DTNotificacion notificacion) {
     this->publicacionesSuscritas.push_back(notificacion.getCodigoPub());
 };
+
+std::string Propietario::getNickname() const {
+    return this->getNick();
+}
 
 std::set<DTInmuebleListado> Propietario::getInmueblesNoAdmin(Inmobiliaria* inm) {
     std::set<DTInmuebleListado> inmueblesNoAdministrados;

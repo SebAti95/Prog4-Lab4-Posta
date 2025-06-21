@@ -1,13 +1,13 @@
 #include "../include/Publicacion.h"
 
-Publicacion::Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::string texto, float precio, bool activa) {
+Publicacion::Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::string texto, float precio, bool activa, AdministraPropiedad* ap) {
     this->codigo = codigo;
     this->fecha = fecha;
     this->tipo = tipo;
     this->texto = texto;
     this->precio = precio;
     this->activa = activa;
-    this->ap=ap;
+    this->ap = ap;
 }
 
 Publicacion::~Publicacion() {

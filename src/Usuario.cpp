@@ -10,7 +10,7 @@ Usuario::Usuario(std::string nickname, std::string contrasena, std::string nombr
 Usuario::~Usuario() {
 }
 
-std::string Usuario::getNick() {
+std::string Usuario::getNick() const {
     return this->nickname;
 }
 std::string Usuario::getPasswd() {

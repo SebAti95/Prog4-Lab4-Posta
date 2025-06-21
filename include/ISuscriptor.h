@@ -1,6 +1,8 @@
 #ifndef ISUSCRIPTOR_H
 #define ISUSCRIPTOR_H
 #include <string>
+#include <set>
+#include "DTNotificacion.h"
 
 class ISuscriptor {
     public:

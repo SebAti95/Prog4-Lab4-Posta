@@ -28,6 +28,7 @@ class Propietario : public Usuario, public ISuscriptor {
         std::string getCuentaBancaria();
         std::string getTelefono();
         virtual void notificar(DTNotificacion notificacion);
+        virtual std::string getNickname() const;
         std::set<DTInmuebleListado> getInmueblesNoAdmin(Inmobiliaria* inm);
         void asociarInmueble(Inmueble* inmueble, int codigo);
         void removeInmueble(int codigoInmueble);

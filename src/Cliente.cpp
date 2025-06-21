@@ -8,7 +8,6 @@ Cliente::Cliente(std::string nickname, std::string contrasena, std::string nombr
 
 Cliente::~Cliente() {
     this->publicacionesSuscritas.clear();
-    delete this;
 }
 
 std::string Cliente::getApellido() {
@@ -19,6 +18,10 @@ std::string Cliente::getDocumento() {
 }
 void Cliente::notificar(DTNotificacion notificacion) {
     this->publicacionesSuscritas.push_back(notificacion.getCodigoPub());
+};
+
+std::string Cliente::getNickname() const {
+    return this->getNick();
 }
 std::set<DTNotificacion> Cliente::getNotificaciones() const {
     std::set<DTNotificacion> notificacionesSet;

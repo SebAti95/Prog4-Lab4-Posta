@@ -4,15 +4,18 @@
 
 #include <set>
 #include "DTInmuebleAdministrado.h"
+#include "DTInmuebleListado.h"
+#include "DTInmueble.h"
 #include "DTPublicacion.h"
+#include "DTNotificacion.h"
 #include "DTUsuario.h"
 #include "TipoPublicacion.h"
 #include "TipoInmueble.h"
 
 class IPublicacion {
 public:
-    
-    virtual ~IPublicacion() {}
+    IPublicacion();
+    virtual ~IPublicacion();
     virtual std::set<DTUsuario> listarInmobiliarias() = 0;
     virtual std::set<DTInmuebleAdministrado> listarInmueblesAdministrados(std::string nicknameInmobiliaria) = 0;
     virtual bool altaPublicacion(std::string nicknameInmobiliaria, int codigoInmueble, TipoPublicacion tipoPublicacion, std::string texto, float precio) = 0;
@@ -20,7 +23,7 @@ public:
     virtual void eliminarInmueble(int codigoInmueble) = 0;
     virtual void altaAdministraPropiedad(std::string nicknameInmobiliaria, int codigoInmueble) = 0;
     virtual std::set<DTInmuebleListado> listarInmueblesNoAdministrados(std::string nickInmobiliaria) = 0;
-    virtual DTInmueble detalleInmueblePublicacion(int codigoPublicacion);
+    virtual DTInmueble detalleInmueblePublicacion(int codigoPublicacion) = 0;
 };
 
 #endif 
