@@ -10,17 +10,14 @@ AdministraPropiedad::AdministraPropiedad(DTFecha* fecha) {
 */
 
 AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTFecha* fecha) {
-    this->fecha = fecha; // Assuming DTFecha has a copy constructor
     this->inmobiliaria = inm;
     this->inmueble = inmue;
-    
+    this->fecha = new DTFecha(fecha);
+
     // Initialize the publicaciones map
-    this->publicaciones = std::map<int, Publicacion*>();
-    
-    // Associate the administration with the inmueble
-    if (inmueble != nullptr) {
-        inmueble->asociarAdministracionPropiedad(this);
-    }
+    //this->publicaciones = std::map<int, Publicacion*>();
+
+    inmueble->asociarAdministracionPropiedad(this);
 }
 
 // Destructor implementation

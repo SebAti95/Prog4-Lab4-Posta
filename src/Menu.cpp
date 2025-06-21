@@ -264,9 +264,9 @@ void altaPublicacion(){
     for (std::set<DTInmuebleAdministrado>::const_iterator it = ColInmueblesAdmin.begin(); it != ColInmueblesAdmin.end(); ++it) {
             int codigo = it->getCodigo(); 
             std::string dir=it->getDireccion();
-            DTFecha* f=it->getFechaComienzo();
-            std::string fecha=f->toString();
-            std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", FechaComienzo: " << fecha << std::endl;
+            //DTFecha* f=it->getFechaComienzo();
+            //std::string fecha=f->toString();
+            std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", FechaComienzo: " << it->getFechaComienzo()->toString() << std::endl;
     }
 
     int codigoInmueble;
@@ -330,8 +330,8 @@ void consultaPublicaciones(){
     for (std::set<DTPublicacion>::const_iterator it = ColeccionDTPublicacion.begin(); it != ColeccionDTPublicacion.end(); ++it) {
             int codigo = it->getCodigo(); // Dereference the iterator
             // Get inmueble to access propietario information
-            DTFecha f=it->getFecha();
-            std::string fecha=f.toString();
+            DTFecha* f=it->getFecha();
+            std::string fecha=f->toString();
             std::string txt=it->getTexto();
             float precio=it->getPrecio();
             std::string inm=it->getInmobiliaria();
