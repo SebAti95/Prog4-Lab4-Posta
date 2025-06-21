@@ -107,7 +107,7 @@ void ControladorUsuario::representarPropietario(std::string nicknamePropietario)
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     Inmobiliaria* inm = m->getInmobiliaria(this->nicknameInmobiliaria);
     Propietario* p = m->getPropietario(nicknamePropietario);
-    // TODO: Implement representarPropInm functionality
-}
+    inm->representarPropInm(p);
 
+}
 
