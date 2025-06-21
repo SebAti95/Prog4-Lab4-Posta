@@ -258,8 +258,9 @@ void altaPublicacion(){
     std::getline(std::cin, nicknameInmobiliaria);
 
     //TODO: Coleccion de DTInmuebleAdministrado = controlador->listarInmueblesAdministrados(nicknameInmobiliaria);
-    std::set<DTInmuebleAdministrado> ColInmueblesAdmin=factory->getIControladorPublicacion()->listarInmueblesAdministrados(nicknameInmobiliaria);
+    std::set<DTInmuebleAdministrado> ColInmueblesAdmin = factory->getIControladorPublicacion()->listarInmueblesAdministrados(nicknameInmobiliaria);
     std::set<DTInmuebleAdministrado>::iterator it;
+    std
     it = ColInmueblesAdmin.begin();
     std::cout << (*it).getFechaComienzo().toString();
 
@@ -268,10 +269,8 @@ void altaPublicacion(){
             int codigo = it->getCodigo(); 
             std::string dir=it->getDireccion();
             DTFecha f=it->getFechaComienzo();//ERROR
+            //std::cout << f.getAnio
             std::string fecha=f.toString();
-            //if(f == nullptr)
-              //  std::cout << "null";
-            //else
             std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", FechaComienzo: " << fecha  << std::endl;
     }
 

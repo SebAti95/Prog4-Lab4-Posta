@@ -33,6 +33,9 @@ std::set<DTInmuebleAdministrado> ControladorPublicacion::listarInmueblesAdminist
     Inmobiliaria* inm = m->getInmobiliaria(nicknameInmobiliaria);
     //std::cout << "- Fecha: " << inm->getAdm()->getFecha()->toString() << std::endl;
     res = inm->coleccionInmuebles();
+    std::set<DTInmuebleAdministrado>::iterator it;
+    it = res.begin();
+    std::cout << (*it).getFechaComienzo().toString();
     return res;
 }
 
