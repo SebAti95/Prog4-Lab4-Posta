@@ -1,4 +1,5 @@
 #include "../include/AdministraPropiedad.h"
+#include <iostream>
 
 // Constructor
 /*
@@ -13,7 +14,7 @@ AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTF
     this->inmobiliaria = inm;
     this->inmueble = inmue;
     this->fecha = new DTFecha(10, 10 , 10);
-
+    std::cout << "- Fecha: " << fecha->toString()  << std::endl;
     // Initialize the publicaciones map
     //this->publicaciones = std::map<int, Publicacion*>();
 
