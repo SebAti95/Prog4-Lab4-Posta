@@ -66,7 +66,6 @@ std::set<DTInmuebleListado> Inmobiliaria::getInmbueblesNoAdminPropietario() {
 void Inmobiliaria::altaAdministracionPropiedad(Inmueble* inmueble, DTFecha* fechaActual) {
     AdministraPropiedad* nuevaAdministracion = new AdministraPropiedad(this, inmueble, fechaActual);
     this->propiedadesAdministradas.push_back(nuevaAdministracion);
-    inmueble->asociarAdministracionPropiedad(nuevaAdministracion);
 }
 
 std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
