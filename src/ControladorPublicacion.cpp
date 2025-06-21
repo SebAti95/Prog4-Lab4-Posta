@@ -31,7 +31,7 @@ std::set<DTInmuebleAdministrado> ControladorPublicacion::listarInmueblesAdminist
     std::set<DTInmuebleAdministrado> res;
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     Inmobiliaria* inm = m->getInmobiliaria(nicknameInmobiliaria);
-    std::cout << "- Fecha: " << inm->getAdm()->getFecha()->toString() << std::endl;
+    //std::cout << "- Fecha: " << inm->getAdm()->getFecha()->toString() << std::endl;
     res = inm->coleccionInmuebles();
     return res;
 }

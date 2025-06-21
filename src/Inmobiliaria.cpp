@@ -75,8 +75,9 @@ std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
         Inmueble* inmueble = (*it)->getInmueble();
         if (inmueble != nullptr) {
             DTFecha* fechaComienzo = (*it)->getFecha();
-            std::cout <<fechaComienzo->toString();
+            //std::cout <<fechaComienzo->toString();
             DTInmuebleAdministrado dt= DTInmuebleAdministrado(inmueble->getCodigo(), inmueble->getDireccion(), fechaComienzo);
+            std::cout << dt.getFechaComienzo().toString();
             inmueblesAdministrados.insert(dt);
         }
     }
