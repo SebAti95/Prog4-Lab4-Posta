@@ -54,7 +54,6 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
     if(exito == true){
         codigoPub = this->codigoUltimaPublicacion;
         this->codigoUltimaPublicacion++;
-        //chequeo de esActiva
         bool activa=admin->esActiva(tipoPublicacion,fechaActual);
         Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, activa, admin);
         admin->agregarPublicacion(p);

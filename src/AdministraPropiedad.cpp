@@ -118,13 +118,10 @@ std::map<int, Publicacion*> AdministraPropiedad::getPublicaciones() {
 bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
     bool activa = true;
     std::map<int, Publicacion*>::iterator it;
-    //std::cout << "Codigo de Inmueble: " << this->getInmueble()->getCodigo() << std::endl;
-    //std::cout << "Nombre de Inmobiliaria: " << this->getInmobiliaria()->getNombre() << std::endl;
     for (it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it) {
         if ((it->second->getTipo() == tipo) && (it->second->getActiva() == true)){
             if((it->second->getFechaDatos() < fecha)){
                 it->second->setActiva(false);
-                std::cout << "Publicacion " << it->second->getDTPublicacion().getCodigo() << "desactivada" << std::endl;
             }
             else activa=false;
             break;
