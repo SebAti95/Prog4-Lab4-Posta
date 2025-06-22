@@ -3,7 +3,7 @@
 
 Publicacion::Publicacion(int codigo, DTFecha* fecha, TipoPublicacion tipo, std::string texto, float precio, bool activa, AdministraPropiedad* ap) {
     this->codigo = codigo;
-    this->fecha = fecha;
+    this->fecha = new DTFecha(fecha);
     this->tipo = tipo;
     this->texto = texto;
     this->precio = precio;
@@ -16,6 +16,7 @@ Publicacion::~Publicacion() {
         delete this->fecha;
         this->fecha = nullptr;
     }
+    delete this;
 }
 
 int Publicacion::getCodigo() {

@@ -14,9 +14,6 @@ AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTF
     this->inmobiliaria = inm;
     this->inmueble = inmue;
     this->fecha = new DTFecha(fecha);
-    // Initialize the publicaciones map
-    //this->publicaciones = std::map<int, Publicacion*>();
-
     this->inmueble->asociarAdministracionPropiedad(this);
     //std::cout << "- Fecha: " << this->inmueble->getAdmin()->getFecha()->toString() << std::endl;
 }
@@ -28,21 +25,26 @@ AdministraPropiedad::~AdministraPropiedad() {
         delete fecha;
         fecha = nullptr;
     }
-    
+    this->eliminarPublicacionesAsoc();
+    this->eliminarInmobiliaria();
+    this->eliminarInmueble();
+    delete this;
     // Delete all publication objects in the map
+    /*
     for (std::map<int, Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
         if (it->second != nullptr) {
             delete it->second;
         }
     }
+    */
     
     // Clear the map
-    publicaciones.clear();
+    //publicaciones.clear();
     
     // Set pointers to nullptr (we don't delete inmobiliaria or inmueble 
     // as they are likely managed elsewhere)
-    inmobiliaria = nullptr;
-    inmueble = nullptr;
+    //inmobiliaria = nullptr;
+    //inmueble = nullptr;
 }
 Inmueble* AdministraPropiedad::getInmueble(){
     return this->inmueble;
@@ -71,10 +73,10 @@ void AdministraPropiedad::eliminarPublicacionesAsoc() {
     // Delete all publication objects in the map
     for (auto& pair : publicaciones) {
         if (pair.second != nullptr) {
-            delete pair.second;
+            pair.second->~Publicacion();
+            pair.second = nullptr;
         }
     }
-    // Clear the map
     publicaciones.clear();
 }
 

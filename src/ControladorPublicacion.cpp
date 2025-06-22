@@ -81,10 +81,7 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         std::vector<AdministraPropiedad*>::iterator it;
         std::vector<AdministraPropiedad*> adminis = inm->getAdminis();
         for (it = adminis.begin(); it != adminis.end(); ++it) {
-            (*it)->eliminarPublicacionesAsoc();
-            (*it)->eliminarInmobiliaria();
-            (*it)->eliminarInmueble();
-            delete (*it);
+            (*it)->~AdministraPropiedad();
         }
         manejPub->eliminarInmueble(inm);
         inm->~Inmueble();
