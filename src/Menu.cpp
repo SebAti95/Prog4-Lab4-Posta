@@ -543,7 +543,20 @@ void altaAdministracionPropiedad(){
 }
 
 void cargarDatos(){
-    CargaDatos::getInstance();
+    CargaDatos* c = CargaDatos::getInstance();
+    try {
+        c->cargarClientes();
+        c->cargarPropietarios();
+        c->cargarInmobiliarias();
+        c->cargarInmuebles();
+        c->cargarRepresentaciones();
+        c->cargarAdministraPropiedades();
+        c->cargarPublicaciones();
+        c->cargarSuscripciones();
+    } catch (const std::exception& e) {
+        // Manejo de excepciones, si es necesario
+        std::cerr << "Error al cargar los datos: " << e.what() << std::endl;
+    }
 }
 
  void verFechaActual(){

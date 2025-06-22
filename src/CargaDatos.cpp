@@ -10,26 +10,13 @@ CargaDatos* CargaDatos::instance = NULL;
 
 CargaDatos::CargaDatos() {
     //TODO: Cargar los datos de prueba
-        try {
-            cargarClientes();
-            cargarPropietarios();
-            cargarInmobiliarias();
-            cargarInmuebles();
-            cargarRepresentaciones();
-            cargarAdministraPropiedades();
-            cargarPublicaciones();
-            cargarSuscripciones();
-        } catch (const std::exception& e) {
-            // Manejo de excepciones, si es necesario
-            std::cerr << "Error al cargar los datos: " << e.what() << std::endl;
-        }
 }
 CargaDatos::~CargaDatos() {
     // Destructor, si es necesario liberar recursos
 }
 void CargaDatos::cargarClientes() {
     IUsuario* iu = Factory::getInstance()->getIControladorUsuario();
-    std::ifstream f("Usuario_Cliente.csv");
+    std::ifstream f("./datos/Usuario_Cliente.csv");
     std::string linea;
 
     while (std::getline(f, linea)) {
@@ -53,7 +40,7 @@ void CargaDatos::cargarClientes() {
 
 void CargaDatos::cargarPropietarios() {
     IUsuario* iu = Factory::getInstance()->getIControladorUsuario();
-    std::ifstream f("../datos/Usuario_Propietario.csv");
+    std::ifstream f("./datos/Usuario_Propietario.csv");
     std::string linea;
     while (std::getline(f, linea)) {
         auto c = split(linea, ',');
@@ -79,7 +66,7 @@ void CargaDatos::cargarPropietarios() {
 
 void CargaDatos::cargarInmobiliarias() {
     IUsuario* iu = Factory::getInstance()->getIControladorUsuario();
-    std::ifstream f("../datos/Usuario_Inmobiliaria.csv");
+    std::ifstream f("./datos/Usuario_Inmobiliaria.csv");
     std::string linea;
     while (std::getline(f, linea)) {
         auto c = split(linea, ',');
@@ -103,7 +90,7 @@ void CargaDatos::cargarInmobiliarias() {
 
 void CargaDatos::cargarInmuebles() {
     IUsuario* iu = Factory::getInstance()->getIControladorUsuario();
-    std::ifstream f("../datos/Propietarios_Dueno_Inmueble.csv");
+    std::ifstream f("./datos/Propietarios_Dueno_Inmueble.csv");
     std::string linea;
 
     while (std::getline(f, linea)) {
@@ -150,7 +137,7 @@ void CargaDatos::cargarInmuebles() {
 
 void CargaDatos::cargarRepresentaciones() {
     IUsuario* iu = Factory::getInstance()->getIControladorUsuario();
-    std::ifstream f("../datos/Inmobiliaria_Representa_Propietario.csv");
+    std::ifstream f("./datos/Inmobiliaria_Representa_Propietario.csv");
     std::string linea;
 
     std::string actualInmobiliaria = "";
@@ -174,7 +161,7 @@ void CargaDatos::cargarRepresentaciones() {
 void CargaDatos::cargarAdministraPropiedades() {
     IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
     IControladorFechaActual* cfecha = Factory::getInstance()->getControladorFechaActual();
-    std::ifstream f("../datos/Inmobiliaria_AdministraPropiedad_Inmueble.csv");
+    std::ifstream f("./datos/Inmobiliaria_AdministraPropiedad_Inmueble.csv");
     std::string linea;
 
     while (std::getline(f, linea)) {
@@ -197,7 +184,7 @@ void CargaDatos::cargarAdministraPropiedades() {
 
 void CargaDatos::cargarPublicaciones() {
     IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
-    std::ifstream f("../datos/AdministraPropiedad_Genera_Publicacion.csv");
+    std::ifstream f("./datos/AdministraPropiedad_Genera_Publicacion.csv");
     std::string linea;
 
     while (std::getline(f, linea)) {
@@ -227,7 +214,7 @@ void CargaDatos::cargarPublicaciones() {
 
 void CargaDatos::cargarSuscripciones() {
     IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
-    std::ifstream f("../datos/Suscripcion_Inmobiliaria.csv");
+    std::ifstream f("./datos/Suscripcion_Inmobiliaria.csv");
     std::string linea;
 
     std::map<std::string, std::set<std::string> > subsPorUsuario;
