@@ -51,7 +51,7 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
     DTFecha* fechaActual = cfecha->getFechaActual();
     AdministraPropiedad* admin = inm->crearPub(codigoInmueble, tipoPublicacion, fechaActual);
     bool exito = admin != nullptr;
-    if(exito){
+    if(exito == true){
         codigoPub = this->codigoUltimaPublicacion;
         this->codigoUltimaPublicacion++;
         Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, false, admin);
