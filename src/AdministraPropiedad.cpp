@@ -71,13 +71,14 @@ bool AdministraPropiedad::puedeCrear(TipoPublicacion tipo,DTFecha* fecha) {
 // Implementation of eliminarPublicacionesAsoc method
 void AdministraPropiedad::eliminarPublicacionesAsoc() {
     // Delete all publication objects in the map
-    for (auto& pair : publicaciones) {
+    /*for (auto& pair : publicaciones) {
         if (pair.second != nullptr) {
             pair.second->~Publicacion();
             pair.second = nullptr;
         }
     }
     publicaciones.clear();
+    */
 }
 
 void AdministraPropiedad::eliminarRelacionInmobiliaria() {
