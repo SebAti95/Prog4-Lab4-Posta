@@ -127,7 +127,7 @@ bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
     std::map<int, Publicacion*>::iterator it;
     //std::cout << "Codigo de Inmueble: " << this->getInmueble()->getCodigo() << std::endl;
     //std::cout << "Nombre de Inmobiliaria: " << this->getInmobiliaria()->getNombre() << std::endl;
-    for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+    for (it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it) {
         std::cout << "Codigo de Publicacion: "<< it->second->getDTPublicacion().getCodigo() << std::endl;
         std::cout << "Fecha de Publicacion: " << it->second->getFecha()->toString() << std::endl;
         std::cout << "Tipo de Publicacion: " << it->second->getTipo() << std::endl;

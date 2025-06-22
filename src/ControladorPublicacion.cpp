@@ -59,6 +59,7 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
         Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, activa, admin);
         admin->agregarPublicacion(p);
         m->agregarPublicacion(p);
+
         std::set<ISuscriptor*> suscriptores = inm->getSuscriptores();
         Inmueble* inmu = m->getInmueble(codigoInmueble);
         for (std::set<ISuscriptor*>::iterator it = suscriptores.begin(); it != suscriptores.end(); ++it) {
