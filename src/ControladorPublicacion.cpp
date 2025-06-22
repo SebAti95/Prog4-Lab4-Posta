@@ -129,7 +129,6 @@ std::set<std::string> ControladorPublicacion::listarNombreInmobiliarias(std::str
         if(!(*it)->UsuarioSuscrito(nick)){
             nombres.insert((*it)->getNick());
         }
-        
     }
     return nombres;
 }
@@ -157,7 +156,7 @@ std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::strin
         admin = m->getPropietario(nick);
     }
     std::set<DTNotificacion> notificaciones = admin->getNotificaciones();
-    admin->limpiarNotificaciones();
+    //admin->limpiarNotificaciones();
     return notificaciones;
 }   
 

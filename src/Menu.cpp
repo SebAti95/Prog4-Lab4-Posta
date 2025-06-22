@@ -449,7 +449,7 @@ void suscribirseNotificaciones(){
     std::set<std::string> nombresInmobiliarias = factory->getIControladorPublicacion()->listarNombreInmobiliarias(nick);
     //Recorrer la coleccion Mostra;
     for (std::set<std::string>::iterator it = nombresInmobiliarias.begin(); it != nombresInmobiliarias.end(); ++it) {
-        std::cout << "- Nombre: " << *it << std::endl;
+        std::cout << "- Nombre: " << (*it) << std::endl;
     }
     std::cout << "Seleccione las inmobiliarias a las que desea suscribirse (separadas por comas): ";
     std::string input;
@@ -466,7 +466,6 @@ void suscribirseNotificaciones(){
 }
 
 void consultaNotificaciones(){
-    /**/
     Factory* factory = Factory::getInstance();
     std::cout << "Usuarios: ";
     std::set<DTUsuario> Clientes = factory->getIControladorUsuario()->listarClientes();
@@ -484,7 +483,7 @@ void consultaNotificaciones(){
     std::set<DTNotificacion> notificaciones = factory->getIControladorPublicacion()->listarNotificaciones(nick);
     //Recorrer la coleccion Mostrar "- Codigo: xx texto: zzz, inmobiliaria: bbb";
     for (std::set<DTNotificacion>::const_iterator it = notificaciones.begin(); it != notificaciones.end(); ++it) {
-        std::string codigo = it->getCodigoPub(); // Dereference the iterator
+        std::string codigo = it->getCodigoPub(); 
         std::string txt=it->getTextoPub();
         std::string inm=it->getNicknameInmobiliaria();
         std::string tipo = it->getTipoInmueblePub();
