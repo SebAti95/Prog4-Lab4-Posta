@@ -28,7 +28,7 @@ AdministraPropiedad::~AdministraPropiedad() {
     this->eliminarPublicacionesAsoc();
     this->eliminarRelacionInmobiliaria();
     this->eliminarRelacionInmueble();
-    delete this;
+    //delete this;
     // Delete all publication objects in the map
     /*
     for (std::map<int, Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {

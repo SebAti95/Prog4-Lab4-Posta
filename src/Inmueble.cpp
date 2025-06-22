@@ -13,7 +13,7 @@ Inmueble::Inmueble(int codigo, std::string direccion, int numeroPuerta, int supe
 Inmueble::~Inmueble() {
     removePropietario();
     this->administraciones.clear();
-    delete this;
+    //delete this;
 }
 int Inmueble::getCodigo() {
     return this->codigo;

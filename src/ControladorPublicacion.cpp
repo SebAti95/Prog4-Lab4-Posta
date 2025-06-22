@@ -81,10 +81,11 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         std::vector<AdministraPropiedad*>::iterator it;
         std::vector<AdministraPropiedad*> adminis = inm->getAdminis();
         for (it = adminis.begin(); it != adminis.end(); ++it) {
-            //(*it)->~AdministraPropiedad();
+            delete (*it);
         }
+        adminis.clear();
         //manejPub->eliminarRelacionInmueble(inm);
-        //inm->~Inmueble();
+        //delete inm;
     }
     else {
         std::cout << "El inmueble con codigo " << codigoInmueble << " no existe." << std::endl;
