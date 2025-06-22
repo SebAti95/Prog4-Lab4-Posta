@@ -128,7 +128,7 @@ bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
     std::cout <<this->getInmueble()->getCodigo() << std::endl;
     std::cout <<this->getInmobiliaria()->getNombre() << std::endl;
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
-        std::cout << it->second->getDTPublicacion().getCodigo() << std::endl;
+        std::cout << "Codigo de Publicacion: "<< it->second->getDTPublicacion().getCodigo() << std::endl;
         //std::cout << "Comparando Pub1 " << fecha->toString() << std::endl;
         //std::cout << "con Pub2 " << it->second->getFecha()->toString() << std::endl;
         if (((it->second->getTipo() == tipo) && (it->second->getActiva() == true))){
