@@ -121,3 +121,14 @@ std::string ControladorUsuario::setNicknamePropietario(std::string nickPropietar
     return this->nicknamePropietario;
 }
 
+std::set<DTUsuario> ControladorUsuario::listarClientes() {
+    std::set<DTUsuario> res;
+    ManejadorUsuario* m = ManejadorUsuario::getInstance();
+    std::set<Cliente*> clientes = m->getClientes(); 
+    for(std::set<Cliente*>::iterator i = clientes.begin(); i != clientes.end(); ++i) { 
+        DTUsuario dt = (*i)->getDTUsuario();
+        res.insert(dt);
+    }
+    return res;
+}
+

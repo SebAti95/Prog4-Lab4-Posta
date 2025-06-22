@@ -23,12 +23,6 @@ std::string Inmobiliaria:: getUrl(){
 std::string Inmobiliaria:: getTelefono(){
     return this->telefono;
 }
-DTUsuario Inmobiliaria:: getDTUsuario(){
-    std::string nickname = this->getNick();
-    std::string nombre = this->getNombre();
-    DTUsuario dt = DTUsuario(nickname,nombre);
-    return dt;
-}
 
 AdministraPropiedad* Inmobiliaria::crearPub(int codigoInm, TipoPublicacion tipo, DTFecha* fecha){
     AdministraPropiedad* admin = nullptr;

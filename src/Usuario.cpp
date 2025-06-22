@@ -22,3 +22,7 @@ std::string Usuario::getNombre() {
 std::string Usuario::getEmail() {
     return this->email;
 }
+
+DTUsuario Usuario::getDTUsuario() const {
+    return DTUsuario(this->nickname, this->nombre);
+}

@@ -9,7 +9,6 @@
 #include "DTInmuebleListado.h"
 #include "Inmueble.h"
 #include "ISuscriptor.h"
-#include "DTUsuario.h"
 #include "DTNotificacion.h"
 
 
@@ -32,7 +31,6 @@ class Propietario : public Usuario, public ISuscriptor {
         std::set<DTInmuebleListado> getInmueblesNoAdmin(Inmobiliaria* inm);
         void asociarInmueble(Inmueble* inmueble, int codigo);
         void removeInmueble(int codigoInmueble);
-        DTUsuario getDTUsuario();
         void agregarSuscripcion(std::string nombreInmobiliaria);
         std::set<DTNotificacion> getNotificaciones() const;
         std::set<std::string> getInmobiliariasSuscritas() const;

@@ -462,7 +462,17 @@ void suscribirseNotificaciones(){
 }
 
 void consultaNotificaciones(){
+    /**/
     Factory* factory = Factory::getInstance();
+    std::cout << "Usuarios: ";
+    std::set<DTUsuario> Clientes = factory->getIControladorUsuario()->listarClientes();
+    std::set<DTUsuario> Propietarios = factory->getIControladorUsuario()->listarPropietarios();
+    for (std::set<DTUsuario>::const_iterator it = Clientes.begin(); it != Clientes.end(); ++it) {
+        std::cout << it->getNickname() << " ";
+    }
+    for (std::set<DTUsuario>::const_iterator it = Propietarios.begin(); it != Propietarios.end(); ++it) {
+        std::cout << it->getNickname() << " ";
+    }
     std::cout << "Ingrese su nickname: ";
     std::string nick;
     std::cin >> nick;

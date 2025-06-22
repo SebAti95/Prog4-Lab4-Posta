@@ -9,7 +9,6 @@
 #include "ISuscriptor.h"
 #include "DTInmuebleAdministrado.h"
 #include "DTInmuebleListado.h"
-#include "DTUsuario.h"
 
 class AdministraPropiedad;
 
@@ -35,7 +34,6 @@ class Inmobiliaria : public Usuario {
         void eliminar(ISuscriptor* o);
         AdministraPropiedad* crearPub(int codigoInmueble, TipoPublicacion TipoPublicacion, DTFecha* fecha);
         void eliminarAdministracion(AdministraPropiedad* administracion);
-        DTUsuario getDTUsuario();
         std::set<ISuscriptor*> getSuscriptores();
         //caso nuevo
         std::set<DTInmuebleListado> getInmbueblesNoAdminPropietario();

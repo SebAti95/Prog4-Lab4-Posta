@@ -7,7 +7,7 @@ ControladorPublicacion* ControladorPublicacion::instance = nullptr;
 
 // Constructor
 ControladorPublicacion::ControladorPublicacion() { 
-    this->codigoUltimaPublicacion=0;
+    this->codigoUltimaPublicacion=1;
 }
 
 // Singleton getInstance method
@@ -80,20 +80,17 @@ std::set<DTPublicacion> ControladorPublicacion::listarPublicacion(TipoPublicacio
 
 void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     ManejadorPublicacion* manejPub = ManejadorPublicacion::getInstance();
-    //std::map<int, Inmueble*>::iterator it;
-    //it = manejPub->inmuebles.find(codigoInmueble);
     Inmueble* inm = manejPub->getInmueble(codigoInmueble);
     if (inm != nullptr) {
         inm->removePropietario();
         std::vector<AdministraPropiedad*>::iterator it;
         std::vector<AdministraPropiedad*>& adminis = inm->getAdminis();        
-        // Delete the AdministraPropiedad objects - their destructors will handle relationship cleanup
         for (it = adminis.begin(); it != adminis.end(); ++it) {
             delete (*it);
         }        
-        //adminis.clear();
-        manejPub->eliminarRelacionInmueble(inm);
-        delete inm;
+        adminis.clear();
+        //manejPub->eliminarRelacionInmueble(inm);
+        //delete inm;
     }
     else {
         std::cout << "El inmueble con codigo " << codigoInmueble << " no existe." << std::endl;

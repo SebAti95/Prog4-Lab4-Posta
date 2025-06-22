@@ -28,6 +28,7 @@ class ManejadorUsuario {
         Propietario* getPropietario(std::string nick);
         std::set<Inmobiliaria*> getInmobiliarias();     
         std::set<Propietario*> getPropietarios();   
+        std::set<Cliente*> getClientes();
 
 };
 

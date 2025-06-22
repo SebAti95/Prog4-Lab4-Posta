@@ -33,6 +33,7 @@ class ControladorUsuario : public IUsuario {
         //Caso de uso nuevo
         virtual std::set<DTUsuario> listarInmobiliarias();
         virtual std::set<DTUsuario> listarPropietarios();
+        virtual std::set<DTUsuario> listarClientes();
         
         virtual void representarPropietario(std::string nicknamePropietario);
         virtual void altaCasa(std::string direccion, int numeroPuerta, float superficie, int anoConstruccion, bool esPH, TipoTecho techo);
