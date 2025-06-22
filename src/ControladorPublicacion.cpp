@@ -84,9 +84,10 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
             (*it)->eliminarPublicacionesAsoc();
             (*it)->eliminarInmobiliaria();
             (*it)->eliminarInmueble();
-            
+            delete (*it);
         }
-        
+        manejPub->eliminarInmueble(inm);
+        inm->~Inmueble();
     }
 }
 
