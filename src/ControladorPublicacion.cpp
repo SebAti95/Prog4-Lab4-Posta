@@ -50,7 +50,7 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
     IControladorFechaActual* cfecha = factory->getControladorFechaActual();
     DTFecha* fechaActual = cfecha->getFechaActual();
     AdministraPropiedad* admin = inm->crearPub(codigoInmueble, tipoPublicacion, fechaActual); //Admin es la instancia de AdministraPropiedad que apunta al inmueble que queremos publicar
-    bool exito = admin != nullptr;
+    bool exito = (admin != nullptr);
     if(exito == true){
         codigoPub = this->codigoUltimaPublicacion;
         this->codigoUltimaPublicacion++;
