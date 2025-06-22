@@ -125,8 +125,8 @@ std::map<int, Publicacion*> AdministraPropiedad::getPublicaciones() {
 bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
     bool activa = true;
     std::map<int, Publicacion*>::iterator it;
-    std::cout <<this->getInmueble()->getCodigo() << std::endl;
-    std::cout <<this->getInmobiliaria()->getNombre() << std::endl;
+    std::cout << "Codigo de Inmueble: " << this->getInmueble()->getCodigo() << std::endl;
+    std::cout << "Nombre de Inmobiliaria: " << this->getInmobiliaria()->getNombre() << std::endl;
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
         std::cout << "Codigo de Publicacion: "<< it->second->getDTPublicacion().getCodigo() << std::endl;
         //std::cout << "Comparando Pub1 " << fecha->toString() << std::endl;
