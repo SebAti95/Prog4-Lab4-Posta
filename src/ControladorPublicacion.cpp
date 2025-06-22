@@ -79,23 +79,13 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     if (inm != nullptr) {
         inm->removePropietario();
         std::vector<AdministraPropiedad*>::iterator it;
-        std::vector<AdministraPropiedad*> adminis = inm->getAdminis();
-        
+        std::vector<AdministraPropiedad*>& adminis = inm->getAdminis();        
         // Delete the AdministraPropiedad objects - their destructors will handle relationship cleanup
         for (it = adminis.begin(); it != adminis.end(); ++it) {
             delete (*it);
-        }
-        
-        // Remove the inmueble from the manager's map
-        manejPub->eliminarRelacionInmueble(inm);
-        // Then delete the inmueble object itself
-        delete inm;
-        std::vector<AdministraPropiedad*>& adminis = inm->getAdminis();
-        for (it = adminis.begin(); it != adminis.end(); ++it) {
-            delete (*it);
-        }
+        }        
         //adminis.clear();
-        manejPub->eliminarRelacionInmueble(inm);
+        //manejPub->eliminarRelacionInmueble(inm);
         //delete inm;
     }
     else {
