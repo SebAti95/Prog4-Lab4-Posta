@@ -96,6 +96,12 @@ void ControladorPublicacion::altaAdministraPropiedad(std::string nicknameInmobil
     Inmobiliaria* inm = m->getInmobiliaria(nicknameInmobiliaria);
     ManejadorPublicacion* mp = ManejadorPublicacion::getInstance();
     Inmueble* inmueble = mp->getInmueble(codigoInmueble);
+    
+    if (inmueble == nullptr) {
+        std::cerr << "Error: No se encontró el inmueble con código " << codigoInmueble << std::endl;
+        return;
+    }
+    
     Factory* factory = Factory::getInstance();
     IControladorFechaActual* cfecha = factory->getControladorFechaActual();
     DTFecha* fechaActual = cfecha->getFechaActual();
