@@ -28,7 +28,6 @@ class AdministraPropiedad {
         void agregarPublicacion(Publicacion* pub);
         std::map<int,Publicacion*> getPublicaciones();
         bool esActiva(TipoPublicacion tipo, DTFecha* fecha);
-        bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha);
 
 };
 
