@@ -126,8 +126,8 @@ bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
     bool activa = true;
     std::map<int, Publicacion*>::iterator it;
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
-        std::cout << "Pub1" << it->second->getFecha()->toString() << std::endl;
-        std::cout << "Pub2" << fecha->toString() << std::endl;
+        std::cout << "Comparando Pub1 " << fecha->toString() << std::endl;
+        std::cout << "con Pub2 " << it->second->getFecha()->toString() << std::endl;
         if (((it->second->getTipo() == tipo) && (it->second->getActiva() == true))){
             if((it->second->getFechaDatos() < fecha)){
                 it->second->setActiva(false);
@@ -135,6 +135,12 @@ bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
             else activa=false;
             break;
         }
+        std::cout << "FINALIZA FOR" << std::endl;
+        std::cout << "-------------------------------------" << fecha->toString() << std::endl;
+        std::cout << "-------------------------------------" << fecha->toString() << std::endl;
+        std::cout << "-------------------------------------" << fecha->toString() << std::endl;
+        std::cout << "-------------------------------------" << fecha->toString() << std::endl;
+
     }
     return activa;
 }
