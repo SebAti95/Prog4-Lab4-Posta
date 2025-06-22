@@ -57,7 +57,19 @@ DTPublicacion Publicacion::getDTPublicacion() {
 }
 
 DTNotificacion Publicacion::getDTNotificacion(TipoInmueble tipoInmueble, std::string nick) {
-    return DTNotificacion(nick, this->codigo,this->tipo, this->texto, this->precio, tipoInmueble);
+   std::string tipo, tipoPub;
+    if (tipoInmueble == TipoInmueble::Casa) {
+       tipo = "Casa";
+    } else if (tipoInmueble == TipoInmueble::Apartamento) {
+        tipo = "Apartamento";
+    }
+    std::string codigoStr = std::to_string(this->codigo);
+    if (this->tipo == TipoPublicacion::Alquiler) {
+        tipoPub = "Alquiler";
+    } else if (this->tipo == TipoPublicacion::Venta) {
+        tipoPub = "Venta";
+    }
+    return DTNotificacion(nick, codigoStr, this->texto, tipoPub, tipo);
 }
 
 void Publicacion::setActiva(bool valor) {
