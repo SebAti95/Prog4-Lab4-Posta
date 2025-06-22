@@ -73,7 +73,7 @@ void AdministraPropiedad::eliminarPublicacionesAsoc() {
     // Delete all publication objects in the map
     /*for (auto& pair : publicaciones) {
         if (pair.second != nullptr) {
-            pair.second->~Publicacion();
+            delete pair.second
             pair.second = nullptr;
         }
     }
