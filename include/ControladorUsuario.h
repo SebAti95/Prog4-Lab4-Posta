@@ -38,6 +38,9 @@ class ControladorUsuario : public IUsuario {
         virtual void altaCasa(std::string direccion, int numeroPuerta, float superficie, int anoConstruccion, bool esPH, TipoTecho techo);
         virtual void altaApartamento(std::string direccion, int numeroPuerta, float superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes);
 
+        virtual std::string setNicknameInmobiliaria(std::string nickInmobiliaria);
+        virtual std::string setNicknamePropietario(std::string nickPropietario);
+
 };
 
 #endif

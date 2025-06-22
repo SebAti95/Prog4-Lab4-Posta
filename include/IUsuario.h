@@ -18,6 +18,8 @@ public:
     virtual void representarPropietario(std::string nicknamePropietario)=0;
     virtual void altaCasa(std::string direccion, int numeroPuerta, float superficie, int anoConstruccion, bool esPH, TipoTecho techo) = 0;
     virtual void altaApartamento(std::string direccion, int numeroPuerta, float superficie, int anoConstruccion, int piso, bool tieneAscensor, float gastosComunes) = 0;
+    virtual std::string setNicknameInmobiliaria(std::string nickInmobiliaria) = 0;
+    virtual std::string setNicknamePropietario(std::string nickPropietario) = 0;
 };
 
 #include "ControladorUsuario.h"

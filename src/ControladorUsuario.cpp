@@ -111,3 +111,13 @@ void ControladorUsuario::representarPropietario(std::string nicknamePropietario)
 
 }
 
+std::string ControladorUsuario::setNicknameInmobiliaria(std::string nickInmobiliaria) {
+    this->nicknameInmobiliaria = nickInmobiliaria;
+    return this->nicknameInmobiliaria;
+}
+
+std::string ControladorUsuario::setNicknamePropietario(std::string nickPropietario) {
+    this->nicknamePropietario = nickPropietario;
+    return this->nicknamePropietario;
+}
+
