@@ -31,6 +31,9 @@ std::set<DTNotificacion> Cliente::getNotificaciones() const {
     }
     return notificacionesSet;
 }
+void Cliente::limpiarNotificaciones() {
+    this->notificaciones.clear();
+}
 
 std::set<std::string> Cliente::getInmobiliariasSuscritas() const {
     std::set<std::string> inmobiliariasSet;

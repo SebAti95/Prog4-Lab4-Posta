@@ -69,6 +69,10 @@ std::set<DTNotificacion> Propietario::getNotificaciones() const {
     return notificacionesSet;
 }
 
+void Propietario::limpiarNotificaciones() {
+    this->notificaciones.clear();
+}
+
 std::set<std::string> Propietario::getInmobiliariasSuscritas() const {
     std::set<std::string> inmobiliariasSet;
     for (std::vector<std::string>::const_iterator it = this->inmobiliariasSuscritas.begin(); it != this->inmobiliariasSuscritas.end(); ++it) {

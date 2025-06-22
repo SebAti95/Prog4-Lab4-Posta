@@ -438,6 +438,15 @@ void eliminarInmueble(){
 
 void suscribirseNotificaciones(){
     Factory* factory = Factory::getInstance();
+    std::cout << "Usuarios: ";
+    std::set<DTUsuario> Clientes = factory->getIControladorUsuario()->listarClientes();
+    std::set<DTUsuario> Propietarios = factory->getIControladorUsuario()->listarPropietarios();
+    for (std::set<DTUsuario>::const_iterator it = Clientes.begin(); it != Clientes.end(); ++it) {
+        std::cout << "Nickname: "<< it->getNickname() << \n;
+    }
+    for (std::set<DTUsuario>::const_iterator it = Propietarios.begin(); it != Propietarios.end(); ++it) {
+       std::cout << "Nickname: "<< it->getNickname() << \n;
+    }
     std::cout << "Ingrese su nickname: ";
     std::string nick;
     std::cin >> nick;
@@ -468,10 +477,10 @@ void consultaNotificaciones(){
     std::set<DTUsuario> Clientes = factory->getIControladorUsuario()->listarClientes();
     std::set<DTUsuario> Propietarios = factory->getIControladorUsuario()->listarPropietarios();
     for (std::set<DTUsuario>::const_iterator it = Clientes.begin(); it != Clientes.end(); ++it) {
-        std::cout << it->getNickname() << " ";
+        std::cout << "Nickname: "<< it->getNickname() << \n;
     }
     for (std::set<DTUsuario>::const_iterator it = Propietarios.begin(); it != Propietarios.end(); ++it) {
-        std::cout << it->getNickname() << " ";
+       std::cout << "Nickname: "<< it->getNickname() << \n;
     }
     std::cout << "Ingrese su nickname: ";
     std::string nick;
@@ -494,6 +503,15 @@ void consultaNotificaciones(){
 void eliminarSuscripciones(){
     Factory* factory = Factory::getInstance();
     std::cout << "Ingrese su nickname: ";
+    std::cout << "Usuarios: ";
+    std::set<DTUsuario> Clientes = factory->getIControladorUsuario()->listarClientes();
+    std::set<DTUsuario> Propietarios = factory->getIControladorUsuario()->listarPropietarios();
+    for (std::set<DTUsuario>::const_iterator it = Clientes.begin(); it != Clientes.end(); ++it) {
+        std::cout << "Nickname: "<< it->getNickname() << \n;
+    }
+    for (std::set<DTUsuario>::const_iterator it = Propietarios.begin(); it != Propietarios.end(); ++it) {
+       std::cout << "Nickname: "<< it->getNickname() << \n;
+    }
     std::string nick;
     std::cin >> nick;
     std::cout << "Listado de Inmobiliarias Suscritas:\n";

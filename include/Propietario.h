@@ -33,6 +33,7 @@ class Propietario : public Usuario, public ISuscriptor {
         void removeInmueble(int codigoInmueble);
         void agregarSuscripcion(std::string nombreInmobiliaria);
         std::set<DTNotificacion> getNotificaciones() const;
+        void limpiarNotificaciones();
         std::set<std::string> getInmobiliariasSuscritas() const;
         void eliminarSuscripcion(std::string nombreInmobiliaria);
 };

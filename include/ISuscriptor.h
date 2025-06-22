@@ -12,6 +12,7 @@ class ISuscriptor {
         virtual std::set<DTNotificacion> getNotificaciones() const = 0;
         virtual std::set<std::string> getInmobiliariasSuscritas() const = 0;
         virtual void eliminarSuscripcion(std::string nombreInmobiliaria) = 0;
+        virtual void limpiarNotificaciones() = 0;
 };
 
 #endif
