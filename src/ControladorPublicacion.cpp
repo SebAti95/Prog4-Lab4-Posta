@@ -57,6 +57,7 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
         Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, false, admin);
         admin->agregarPublicacion(p);
         m->agregarPublicacion(p);
+        
     }
     else {
         delete fechaActual;
@@ -85,8 +86,8 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
             delete (*it);
         }        
         //adminis.clear();
-        //manejPub->eliminarRelacionInmueble(inm);
-        //delete inm;
+        manejPub->eliminarRelacionInmueble(inm);
+        delete inm;
     }
     else {
         std::cout << "El inmueble con codigo " << codigoInmueble << " no existe." << std::endl;
