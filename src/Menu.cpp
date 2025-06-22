@@ -296,7 +296,7 @@ void altaPublicacion(){
 
     //TODO:Controlador->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio)
     bool resultado = factory->getIControladorPublicacion()->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio);
-    if (resultado) {
+    if (resultado == true) {
         std::cout << "Publicacion dada de alta con exito" << std::endl;
     } else {
         std::cout << "Publicacion no dada de alta, ya existe una publicacion de misma fecha y tipo" << std::endl;
@@ -309,7 +309,6 @@ void consultaPublicaciones(){
     int inTipoPublicacion;
     std::cout << "Tipo de Publicacion: (1: Venta, 0: Alquiler)";
     std::cin >> inTipoPublicacion;
-    std::cin.ignore();
     TipoPublicacion tipoPublicacion = Alquiler;
     if(inTipoPublicacion == 1){
         tipoPublicacion = Venta;
@@ -328,9 +327,9 @@ void consultaPublicaciones(){
     std::cin >> inTipoInmueble;
     std::cin.ignore();
     TipoInmueble tipoInmueble = Todos;
-    if(inTipoPublicacion == 1){
+    if(inTipoInmueble == 1){
         tipoInmueble = Casa;
-    }else if(inTipoPublicacion == 2){
+    }else if(inTipoInmueble == 2){
         tipoInmueble = Apartamento;
     }
     std::cout << "Publicaciones encontradas:\n";

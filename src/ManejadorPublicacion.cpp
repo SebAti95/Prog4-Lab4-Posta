@@ -1,6 +1,7 @@
 #include "../include/ManejadorPublicacion.h"
 #include "../include/Casa.h"
 #include <cstddef>
+#include <iostream>
 
 // Initialize static instance pointer to nullptr
 ManejadorPublicacion* ManejadorPublicacion::instance = nullptr;
@@ -66,10 +67,12 @@ std::set<DTPublicacion> ManejadorPublicacion::listarPublicaciones(TipoPublicacio
     for (std::map<int, Publicacion*>::const_iterator it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it) {
         const std::pair<int, Publicacion*>& pair = *it;
         Publicacion* pub = pair.second;
+        //std::cout << pub->getTipo();
         if (pub->getTipo() == tipoPublicacion && 
             pub->getPrecio() >= precioMinimo && 
             pub->getPrecio() <= precioMaximo &&
-            pub->getAdmin()->getInmueble()->getTipoInmueble() == tipoInmueble) {
+                (pub->getAdmin()->getInmueble()->getTipoInmueble() == tipoInmueble || 
+                tipoInmueble == Todos)) {
             publicacionesSet.insert(pub->getDTPublicacion());
         }
     }
