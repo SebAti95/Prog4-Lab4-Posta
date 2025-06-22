@@ -73,16 +73,18 @@ std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
     std::set<DTInmuebleAdministrado> inmueblesAdministrados;
     for(std::vector<AdministraPropiedad*>::iterator it = this->propiedadesAdministradas.begin(); it != propiedadesAdministradas.end(); ++it) {
         Inmueble* inmueble = (*it)->getInmueble();
-        if (inmueble != nullptr) {
+        //if (inmueble != nullptr) {
             DTFecha* fechaComienzo = (*it)->getFecha();
-            //std::cout <<fechaComienzo->toString();
+            //td::cout <<fechaComienzo->toString();
             DTInmuebleAdministrado dt= DTInmuebleAdministrado(inmueble->getCodigo(), inmueble->getDireccion(), fechaComienzo);
             inmueblesAdministrados.insert(dt);
-        }
+       // }
     }
-     std::set<DTInmuebleAdministrado>::iterator it;
-            it = inmueblesAdministrados.begin();
-            std::cout << (*it).getFechaComienzo().toString();
+    /*
+    std::set<DTInmuebleAdministrado>::iterator it;
+    it = inmueblesAdministrados.begin();
+    std::cout << (*it).getFechaComienzo().toString();
+    */
     return inmueblesAdministrados;
 }
 

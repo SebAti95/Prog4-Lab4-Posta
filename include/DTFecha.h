@@ -16,7 +16,7 @@ class DTFecha {
         bool operator<(DTFecha* fecha);
         bool operator==(DTFecha* fecha);
         std::string toString();
-        int getAnio();
+        //int getAnio();
 };
 std::ostream& operator<<(std::ostream& os, DTFecha* fecha);
 #endif
