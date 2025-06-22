@@ -77,11 +77,8 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     //it = manejPub->inmuebles.find(codigoInmueble);
     Inmueble* inm = manejPub->getInmueble(codigoInmueble);
     if (inm != nullptr) {
-        std::cout << "Inmueble encontrado." << std::endl;
-    }
-    /*
-    if (inm != nullptr) {
         inm->removePropietario();
+        /*
         std::vector<AdministraPropiedad*>::iterator it;
         std::vector<AdministraPropiedad*> adminis = inm->getAdminis();
         for (it = adminis.begin(); it != adminis.end(); ++it) {
@@ -89,8 +86,11 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         }
         manejPub->eliminarRelacionInmueble(inm);
         inm->~Inmueble();
-    }
         */
+    }
+    else {
+        std::cout << "El inmueble con codigo " << codigoInmueble << " no existe." << std::endl;
+    }
 }
 
 void ControladorPublicacion::altaAdministraPropiedad(std::string nicknameInmobiliaria, int codigoInmueble) {
