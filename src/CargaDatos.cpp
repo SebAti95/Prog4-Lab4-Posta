@@ -177,7 +177,6 @@ void CargaDatos::cargarRepresentaciones() {
 
 void CargaDatos::cargarAdministraPropiedades() {
     IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
-    IControladorFechaActual* cfecha = Factory::getInstance()->getControladorFechaActual();
     std::ifstream f("./datos/Inmobiliaria_AdministraPropiedad_Inmueble.csv");
     std::string linea;
 

@@ -6,6 +6,7 @@
 #include "TipoPublicacion.h"
 #include "DTPublicacion.h"
 #include "DTNotificacion.h"
+#include "TipoInmueble.h"
 
 class AdministraPropiedad; // Forward declaration
 
