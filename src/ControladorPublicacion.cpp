@@ -151,18 +151,20 @@ void ControladorPublicacion::suscribirse(std::set<std::string> nombresInmobiliar
 }
 
 std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::string nick) {
-    ManejadorUsuario* m = ManejadorUsuario::getInstance();
+    /*ManejadorUsuario* m = ManejadorUsuario::getInstance();
     ISuscriptor* admin = m->getCliente(nick);
     if (admin == nullptr) {
         admin = m->getPropietario(nick);
     }
     std::set<DTNotificacion> notificaciones = admin->getNotificaciones();
+    admin->limpiarNotificaciones();
     return notificaciones;
+    */
 }   
 
 std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
-   ISuscriptor* admin = m->getCliente(nick);
+    ISuscriptor* admin = m->getCliente(nick);
     if (admin == nullptr) {
         admin = m->getPropietario(nick);
     }
