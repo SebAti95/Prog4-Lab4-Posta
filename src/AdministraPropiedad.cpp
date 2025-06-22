@@ -125,14 +125,16 @@ std::map<int, Publicacion*> AdministraPropiedad::getPublicaciones() {
 bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
     bool activa = true;
     std::map<int, Publicacion*>::iterator it;
-    std::cout << "Codigo de Inmueble: " << this->getInmueble()->getCodigo() << std::endl;
-    std::cout << "Nombre de Inmobiliaria: " << this->getInmobiliaria()->getNombre() << std::endl;
+    //std::cout << "Codigo de Inmueble: " << this->getInmueble()->getCodigo() << std::endl;
+    //std::cout << "Nombre de Inmobiliaria: " << this->getInmobiliaria()->getNombre() << std::endl;
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+        /*
         std::cout << "Codigo de Publicacion: "<< it->second->getDTPublicacion().getCodigo() << std::endl;
         std::cout << "Fecha de Publicacion: " << it->second->getFecha()->toString() << std::endl;
         std::cout << "Tipo de Publicacion: " << it->second->getTipo() << std::endl;
         std::cout << "Activa: " << it->second->getActiva() << std::endl;
         std::cout << "-------------------------------------" << std::endl;
+        */
         //std::cout << "Comparando Pub1 " << fecha->toString() << std::endl;
         //std::cout << "con Pub2 " << it->second->getFecha()->toString() << std::endl;
         if ((it->second->getTipo() == tipo) && (it->second->getActiva() == true)){
@@ -142,8 +144,6 @@ bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
             else activa=false;
             break;
         }
-
-
     }
         std::cout << "FINALIZA FOR" << std::endl;
         std::cout << "-------------------------------------" << std::endl;
