@@ -95,32 +95,49 @@ void CargaDatos::cargarInmuebles() {
 
     while (std::getline(f, linea)) {
         auto c = split(linea, ',');
-        if (c.size() < 12) continue;
+        if (c.size() < 7) {
+            std::cout << "Línea ignorada (muy pocos campos): " << linea << std::endl;
+            continue;
+        }
 
+        std::string nickPropietario = c[0]; // propietario
+        int codigoInmuebleCSV = std::stoi(c[1]); // código del inmueble en el CSV
         std::string tipo = c[2]; // "casa" o "apartamento"
-
+        
         std::string direccion      = c[3];
         int puerta                 = std::stoi(c[4]);
         float superficie           = std::stof(c[5]);
         int anio                   = std::stoi(c[6]);
 
         try {
+            
+            // Establecer el propietario actual antes de crear el inmueble
+            iu->setNicknamePropietario(nickPropietario);
+            
             if (tipo == "Casa") {
-                bool esPH = toBool(c[7]);
-                std::string techo = c[8];
-                TipoTecho tipoTecho;
-                if (techo == "Liviano") {
-                    tipoTecho = TipoTecho::Liviano;
-                } else if (techo == "A dos aguas") {
-                    tipoTecho = TipoTecho::A_dos_aguas;
-                } else if (techo == "Plano") {
-                    tipoTecho = TipoTecho::Plano;
-                } else {
-                    throw std::invalid_argument("Tipo de techo desconocido: " + techo);
-                }
+                try {
+                    bool esPH = toBool(c[7]);
+                    std::string techo = c[8];
+                    TipoTecho tipoTecho;
+                    if (techo == "Liviano") {
+                        tipoTecho = TipoTecho::Liviano;
+                    } else if (techo == "A dos aguas") {
+                        tipoTecho = TipoTecho::A_dos_aguas;
+                    } else if (techo == "Plano") {
+                        tipoTecho = TipoTecho::Plano;
+                    } else {
+                        throw std::invalid_argument("Tipo de techo desconocido: " + techo);
+                    }
 
-                iu->altaCasa(direccion, puerta, superficie, anio, esPH, tipoTecho);
+                    iu->altaCasa(direccion, puerta, superficie, anio, esPH, tipoTecho);
+                } catch (const std::exception& ex) {
+                    std::cerr << "  --> Error creando casa: " << ex.what() << std::endl;
+                }
             } else if (tipo == "Apartamento") {
+                if (c.size() < 12) {
+                    std::cerr << "  --> Error: Apartamento requiere al menos 12 campos, encontrados " << c.size() << std::endl;
+                    continue;
+                }
                 int piso = std::stoi(c[9]);
                 bool ascensor = toBool(c[10]);
                 float gastosComunes = std::stof(c[11]);
@@ -163,9 +180,6 @@ void CargaDatos::cargarAdministraPropiedades() {
     IControladorFechaActual* cfecha = Factory::getInstance()->getControladorFechaActual();
     std::ifstream f("./datos/Inmobiliaria_AdministraPropiedad_Inmueble.csv");
     std::string linea;
-
-    // Skip header line
-    std::getline(f, linea);
 
     while (std::getline(f, linea)) {
         auto c = split(linea, ',');
