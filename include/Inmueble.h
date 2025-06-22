@@ -36,7 +36,7 @@ class Inmueble {
         void eliminarAdministracion(AdministraPropiedad* administracion);
         bool esAdministrado(Inmobiliaria* inm);
         void asociarAdministracionPropiedad(AdministraPropiedad* adminPropiedad);
-        std::vector<AdministraPropiedad*> getAdminis();
+        std::vector<AdministraPropiedad*>& getAdminis();
         virtual TipoInmueble getTipoInmueble() = 0;
         AdministraPropiedad* getAdmin(); 
 };
