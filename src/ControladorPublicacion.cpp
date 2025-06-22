@@ -76,6 +76,10 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     //std::map<int, Inmueble*>::iterator it;
     //it = manejPub->inmuebles.find(codigoInmueble);
     Inmueble* inm = manejPub->getInmueble(codigoInmueble);
+    if (inm == nullptr) {
+        std::cout << "Inmueble no encontrado." << std::endl;
+        return;
+    }
     if (inm != nullptr) {
         inm->removePropietario();
         std::vector<AdministraPropiedad*>::iterator it;
