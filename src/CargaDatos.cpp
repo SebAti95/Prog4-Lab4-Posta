@@ -164,6 +164,9 @@ void CargaDatos::cargarAdministraPropiedades() {
     std::ifstream f("./datos/Inmobiliaria_AdministraPropiedad_Inmueble.csv");
     std::string linea;
 
+    // Skip header line
+    std::getline(f, linea);
+
     while (std::getline(f, linea)) {
         auto c = split(linea, ',');
         if (c.size() < 3) continue;
@@ -186,6 +189,9 @@ void CargaDatos::cargarPublicaciones() {
     IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
     std::ifstream f("./datos/AdministraPropiedad_Genera_Publicacion.csv");
     std::string linea;
+
+    // Skip header line
+    std::getline(f, linea);
 
     while (std::getline(f, linea)) {
         auto c = split(linea, ',');
