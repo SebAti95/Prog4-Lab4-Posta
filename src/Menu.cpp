@@ -309,6 +309,7 @@ void consultaPublicaciones(){
     int inTipoPublicacion;
     std::cout << "Tipo de Publicacion: (1: Venta, 0: Alquiler)";
     std::cin >> inTipoPublicacion;
+    std::cin.ignore();
     TipoPublicacion tipoPublicacion = Alquiler;
     if(inTipoPublicacion == 1){
         tipoPublicacion = Venta;
