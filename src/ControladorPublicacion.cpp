@@ -79,7 +79,6 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     if (inm != nullptr) {
         inm->removePropietario();
         std::vector<AdministraPropiedad*>::iterator it;
-<<<<<<< HEAD
         std::vector<AdministraPropiedad*> adminis = inm->getAdminis();
         
         // Delete the AdministraPropiedad objects - their destructors will handle relationship cleanup
@@ -91,7 +90,6 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         manejPub->eliminarRelacionInmueble(inm);
         // Then delete the inmueble object itself
         delete inm;
-=======
         std::vector<AdministraPropiedad*>& adminis = inm->getAdminis();
         for (it = adminis.begin(); it != adminis.end(); ++it) {
             delete (*it);
@@ -99,7 +97,6 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         //adminis.clear();
         manejPub->eliminarRelacionInmueble(inm);
         //delete inm;
->>>>>>> d939f7f620507113882796761d961c215233baf2
     }
     else {
         std::cout << "El inmueble con codigo " << codigoInmueble << " no existe." << std::endl;

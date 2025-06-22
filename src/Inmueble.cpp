@@ -15,10 +15,7 @@ Inmueble::~Inmueble() {
         removePropietario();
     }
     this->administraciones.clear();
-<<<<<<< HEAD
-=======
     //delete this;
->>>>>>> d939f7f620507113882796761d961c215233baf2
 }
 int Inmueble::getCodigo() {
     return this->codigo;
