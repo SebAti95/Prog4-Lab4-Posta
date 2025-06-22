@@ -22,6 +22,8 @@ class DTPublicacion {
         
         // Comparison operator for std::set
         bool operator<(const DTPublicacion& other) const;
+        DTPublicacion(const DTPublicacion& other);
+        DTPublicacion& operator=(const DTPublicacion& other);
 };
 
 #endif
