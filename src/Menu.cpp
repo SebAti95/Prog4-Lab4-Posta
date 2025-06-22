@@ -296,7 +296,7 @@ void altaPublicacion(){
 
     //TODO:Controlador->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio)
     bool resultado = factory->getIControladorPublicacion()->altaPublicacion(nicknameInmobiliaria, codigoInmueble, tipoPublicacion, texto, precio);
-    if (resultado) {
+    if (resultado == true) {
         std::cout << "Publicacion dada de alta con exito" << std::endl;
     } else {
         std::cout << "Publicacion no dada de alta, ya existe una publicacion de misma fecha y tipo" << std::endl;
