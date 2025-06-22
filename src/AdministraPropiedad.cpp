@@ -59,9 +59,10 @@ bool AdministraPropiedad::puedeCrear(TipoPublicacion tipo,DTFecha* fecha) {
     bool pub = false;
     for(std::map<int, Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
        pub = ((it->second->getTipo()==tipo) && (it->second->getFechaDatos() == fecha)); //por lo visto, get fecha devuelve DTFecha pero como puntero, capaz hacer un getFechaDatos y que devuelva un DTFecha NO PUNTERO
-       if(pub)
+       if(pub == true) {
         std::cout << "hola";
         break;
+       }
     }
     return !pub;
 }
