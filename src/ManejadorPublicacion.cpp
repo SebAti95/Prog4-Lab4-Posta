@@ -67,11 +67,10 @@ std::set<DTPublicacion> ManejadorPublicacion::listarPublicaciones(TipoPublicacio
     for (std::map<int, Publicacion*>::const_iterator it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it) {
         const std::pair<int, Publicacion*>& pair = *it;
         Publicacion* pub = pair.second;
-        //std::cout << pub->getTipo();
         if (pub->getTipo() == tipoPublicacion && 
             pub->getPrecio() >= precioMinimo && 
             pub->getPrecio() <= precioMaximo &&
-            pub->getActiva()==1 &&
+            //pub->getActiva()==1 &&
                 (pub->getAdmin()->getInmueble()->getTipoInmueble() == tipoInmueble || 
                 tipoInmueble == Todos)) {
             publicacionesSet.insert(pub->getDTPublicacion());
