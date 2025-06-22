@@ -78,11 +78,11 @@ std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
             //std::cout <<fechaComienzo->toString();
             DTInmuebleAdministrado dt= DTInmuebleAdministrado(inmueble->getCodigo(), inmueble->getDireccion(), fechaComienzo);
             inmueblesAdministrados.insert(dt);
-            /*
+            
             std::set<DTInmuebleAdministrado>::iterator it;
             it = inmueblesAdministrados.begin();
             std::cout << (*it).getFechaComienzo().toString();
-            */
+            
         }
     }
     return inmueblesAdministrados;

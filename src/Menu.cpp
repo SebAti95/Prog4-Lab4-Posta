@@ -261,8 +261,8 @@ void altaPublicacion(){
     std::set<DTInmuebleAdministrado> ColInmueblesAdmin = factory->getIControladorPublicacion()->listarInmueblesAdministrados(nicknameInmobiliaria);
     std::set<DTInmuebleAdministrado>::iterator it;
     it = ColInmueblesAdmin.begin();
-    DTFecha fec = (*it).getFechaComienzo();
-    std::cout << fec.getAnio();
+    //DTFecha fec = (*it).getFechaComienzo();
+    //std::cout << fec.getAnio();
     //std::cout << (*it).getFechaComienzo().toString();
 
     //Recorrer la coleccion Mostrar "- Codigo: xx, Direccion: yy, FechaComienzo: dd/mm/aaaa"
@@ -270,7 +270,6 @@ void altaPublicacion(){
             int codigo = it->getCodigo(); 
             std::string dir=it->getDireccion();
             DTFecha f=it->getFechaComienzo();//ERROR
-            //std::cout << f.getAnio
             std::string fecha=f.toString();
             std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", FechaComienzo: " << fecha  << std::endl;
     }
