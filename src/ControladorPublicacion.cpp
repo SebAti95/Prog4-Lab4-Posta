@@ -83,7 +83,7 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         for (it = adminis.begin(); it != adminis.end(); ++it) {
             (*it)->~AdministraPropiedad();
         }
-        manejPub->eliminarInmueble(inm);
+        manejPub->eliminarRelacionInmueble(inm);
         inm->~Inmueble();
     }
 }

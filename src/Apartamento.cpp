@@ -14,7 +14,6 @@ Apartamento::Apartamento(int codigo, std::string direccion, int numeroPuerta, fl
     this->gastosComunes = gastosComunes;
 }
 Apartamento::~Apartamento() {
-    delete this;
 }
 int Apartamento::getPiso() {
     return this->piso;

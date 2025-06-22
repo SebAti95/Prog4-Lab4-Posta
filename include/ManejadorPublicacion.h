@@ -21,7 +21,7 @@ class ManejadorPublicacion {
     void agregarPublicacion(Publicacion* publicacion);
     void agregarInmueble(Inmueble* inmueble);
     void eliminarPublicacion(Publicacion* publicacion);
-    void eliminarInmueble(Inmueble* inmueble);
+    void eliminarRelacionInmueble(Inmueble* inmueble);
     std::set<DTInmuebleListado> listarInmuebles();
     Publicacion* getPublicacion(int codigo);
     Inmueble* getInmueble(int id);

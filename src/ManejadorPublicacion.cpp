@@ -49,7 +49,7 @@ void ManejadorPublicacion::agregarInmueble(Inmueble* inmueble) {
     }
 }
 
-void ManejadorPublicacion::eliminarInmueble(Inmueble* inmueble) {
+void ManejadorPublicacion::eliminarRelacionInmueble(Inmueble* inmueble) {
     if (inmueble != nullptr) {
         this->inmuebles.erase(inmueble->getCodigo());
     }

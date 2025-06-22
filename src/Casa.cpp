@@ -13,7 +13,6 @@ Casa::Casa(int codigo, std::string direccion, int numeroPuerta, float superficie
 }
 
 Casa::~Casa() {
-    delete this;
 }
 bool Casa::getEsPH() {
     return this->esPH;
