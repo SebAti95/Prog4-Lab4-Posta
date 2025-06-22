@@ -26,9 +26,18 @@ AdministraPropiedad::~AdministraPropiedad() {
         fecha = nullptr;
     }
     this->eliminarPublicacionesAsoc();
-    this->eliminarRelacionInmobiliaria();
-    this->eliminarRelacionInmueble();
-    delete this;
+    
+    // Only call the relationship elimination methods if the pointers are still valid
+    // This prevents circular deletion issues when the inmueble is being deleted
+    if (inmobiliaria != nullptr) {
+        inmobiliaria->eliminarAdministracion(this);
+        inmobiliaria = nullptr;
+    }
+    if (inmueble != nullptr) {
+        inmueble->eliminarAdministracion(this);
+        inmueble = nullptr;
+    }
+    
     // Delete all publication objects in the map
     /*
     for (std::map<int, Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
