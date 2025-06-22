@@ -113,3 +113,7 @@ AdministraPropiedad* Inmobiliaria::getAdm() {
     it = this->propiedadesAdministradas.begin();
     return (*it);
 }
+
+std::set<ISuscriptor*> Inmobiliaria::getSuscriptores() {
+    return this->suscriptores;
+}

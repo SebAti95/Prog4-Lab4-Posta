@@ -30,6 +30,7 @@ public:
     virtual std::set<DTNotificacion> listarNotificaciones(std::string nick) = 0;
     virtual std::set<std::string> seleccionarSuscripcion(std::string nick) = 0;
     virtual void eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick) = 0;
+
 };
 
 #endif 

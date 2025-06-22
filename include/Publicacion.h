@@ -5,6 +5,7 @@
 #include "DTFecha.h"
 #include "TipoPublicacion.h"
 #include "DTPublicacion.h"
+#include "DTNotificacion.h"
 
 class AdministraPropiedad; // Forward declaration
 
@@ -30,6 +31,7 @@ public:
     float getPrecio();
     bool getActiva();
     DTPublicacion getDTPublicacion();
+    DTNotificacion getDTNotificacion(TipoInmueble tipoInmueble, std::string nickInmob);
     void setActiva(bool valor);
 };
 

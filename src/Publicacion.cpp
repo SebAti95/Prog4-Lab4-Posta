@@ -56,6 +56,10 @@ DTPublicacion Publicacion::getDTPublicacion() {
     return DTPublicacion(this->codigo, this->fecha, this->texto, this->precio, nombreInmobiliaria);
 }
 
+DTNotificacion Publicacion::getDTNotificacion(TipoInmueble tipoInmueble, std::string nick) {
+    return DTNotificacion(nick, this->codigo,this->tipo, this->texto, this->precio, tipoInmueble);
+}
+
 void Publicacion::setActiva(bool valor) {
     this->activa = valor;
 }

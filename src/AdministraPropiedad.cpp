@@ -117,3 +117,22 @@ void AdministraPropiedad::agregarPublicacion(Publicacion* p) {
     int codigo = p->getCodigo();
     this->publicaciones[codigo]=p;
 }
+
+std::map<int, Publicacion*> AdministraPropiedad::getPublicaciones() {
+    return this->publicaciones;
+}
+
+bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
+    bool activa = true;
+    std::map<int, Publicacion*>::iterator it;
+    for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+        if (((it->second->getTipo() == tipo) && (it->second->getActiva() == true))){
+            if((it->second->getFechaDatos() < fecha)){
+                it->second->setActiva(false);
+            }
+            else activa=false;
+            break;
+        }
+    }
+    return activa;
+}

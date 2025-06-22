@@ -49,15 +49,21 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
     Factory* factory = Factory::getInstance();
     IControladorFechaActual* cfecha = factory->getControladorFechaActual();
     DTFecha* fechaActual = cfecha->getFechaActual();
-    AdministraPropiedad* admin = inm->crearPub(codigoInmueble, tipoPublicacion, fechaActual);
+    AdministraPropiedad* admin = inm->crearPub(codigoInmueble, tipoPublicacion, fechaActual); //Admin es la instancia de AdministraPropiedad que apunta al inmueble que queremos publicar
     bool exito = admin != nullptr;
     if(exito == true){
         codigoPub = this->codigoUltimaPublicacion;
         this->codigoUltimaPublicacion++;
-        Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, false, admin);
+        //chequeo de esActiva
+        bool activa=admin->esActiva(tipoPublicacion,fechaActual);
+        Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, activa, admin);
         admin->agregarPublicacion(p);
         m->agregarPublicacion(p);
-        
+        std::set<ISuscriptor*> suscriptores = inm->getSuscriptores();
+        Inmueble* inmu = m->getInmueble(codigoInmueble);
+        for (std::set<ISuscriptor*>::iterator it = suscriptores.begin(); it != suscriptores.end(); ++it) {
+            (*it)->notificar(p->getDTNotificacion(inmu->getTipoInmueble(), inm->getNick()));
+        }
     }
     else {
         delete fechaActual;
