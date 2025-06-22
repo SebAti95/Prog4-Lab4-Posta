@@ -141,12 +141,10 @@ bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
 
 
     }
-    /*
         std::cout << "FINALIZA FOR" << std::endl;
         std::cout << "-------------------------------------" << std::endl;
         std::cout << "-------------------------------------" << std::endl;
         std::cout << "-------------------------------------" << std::endl;
         std::cout << "-------------------------------------" << std::endl;
-        */
     return activa;
 }
