@@ -197,6 +197,33 @@ void CargaDatos::cargarAdministraPropiedades() {
         }
     }
 }
+void CargaDatos::cargarSuscripciones() {
+    IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
+    std::ifstream f("./datos/Suscripcion_Inmobiliaria.csv");
+    std::string linea;
+
+    std::map<std::string, std::set<std::string> > subsPorUsuario;
+
+    while (std::getline(f, linea)) {
+        std::vector<std::string> c = split(linea, ',');
+        if (c.size() < 2) continue;
+
+        std::string nickUsuario = c[0];
+        std::string nickInmo    = c[1];
+
+        subsPorUsuario[nickUsuario].insert(nickInmo);
+    }
+    for (std::map<std::string, std::set<std::string>>::iterator it = subsPorUsuario.begin(); it != subsPorUsuario.end(); ++it) {
+        std::string nickUsuario = it->first;
+        std::set<std::string> inmobiliarias = it->second;
+
+        try {
+            ip->suscribirse(inmobiliarias, nickUsuario);
+        } catch (const std::exception& e) {
+            std::cerr << "Error al suscribir " << nickUsuario << ": " << e.what() << "\n";
+        }
+    }
+}
 
 void CargaDatos::cargarPublicaciones() {
     IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
@@ -230,33 +257,6 @@ void CargaDatos::cargarPublicaciones() {
     }
 }
 
-void CargaDatos::cargarSuscripciones() {
-    IPublicacion* ip = Factory::getInstance()->getIControladorPublicacion();
-    std::ifstream f("./datos/Suscripcion_Inmobiliaria.csv");
-    std::string linea;
-
-    std::map<std::string, std::set<std::string> > subsPorUsuario;
-
-    while (std::getline(f, linea)) {
-        std::vector<std::string> c = split(linea, ',');
-        if (c.size() < 2) continue;
-
-        std::string nickUsuario = c[0];
-        std::string nickInmo    = c[1];
-
-        subsPorUsuario[nickUsuario].insert(nickInmo);
-    }
-    for (std::map<std::string, std::set<std::string>>::iterator it = subsPorUsuario.begin(); it != subsPorUsuario.end(); ++it) {
-        std::string nickUsuario = it->first;
-        std::set<std::string> inmobiliarias = it->second;
-
-        try {
-            ip->suscribirse(inmobiliarias, nickUsuario);
-        } catch (const std::exception& e) {
-            std::cerr << "Error al suscribir " << nickUsuario << ": " << e.what() << "\n";
-        }
-    }
-}
 
 std::vector<std::string> CargaDatos::split(const std::string& str, char sep) {
     std::vector<std::string> result;
