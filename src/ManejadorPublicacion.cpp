@@ -71,7 +71,8 @@ std::set<DTPublicacion> ManejadorPublicacion::listarPublicaciones(TipoPublicacio
         if (pub->getTipo() == tipoPublicacion && 
             pub->getPrecio() >= precioMinimo && 
             pub->getPrecio() <= precioMaximo &&
-            pub->getAdmin()->getInmueble()->getTipoInmueble() == tipoInmueble) {
+                (pub->getAdmin()->getInmueble()->getTipoInmueble() == tipoInmueble || 
+                tipoInmueble == Todos)) {
             publicacionesSet.insert(pub->getDTPublicacion());
         }
     }
