@@ -206,8 +206,10 @@ void CargaDatos::cargarPublicaciones() {
 
     while (std::getline(f, linea)) {
         auto c = split(linea, ',');
-        if (c.size() < 8) continue;
-
+        if (c.size() < 8) {
+            std::cerr << "Línea ignorada (muy pocos campos): " << linea << std::endl;
+            continue;
+        }
         std::string nickInmo     = c[0];
         int codigoInmueble       = std::stoi(c[1]);
         std::string fechaStr     = c[3];
