@@ -259,17 +259,12 @@ void altaPublicacion(){
 
     //TODO: Coleccion de DTInmuebleAdministrado = controlador->listarInmueblesAdministrados(nicknameInmobiliaria);
     std::set<DTInmuebleAdministrado> ColInmueblesAdmin = factory->getIControladorPublicacion()->listarInmueblesAdministrados(nicknameInmobiliaria);
-    //std::set<DTInmuebleAdministrado>::iterator it;
-    //it = ColInmueblesAdmin.begin();
-    //DTFecha fec = (*it).getFechaComienzo();
-    //std::cout << fec.getAnio();
-    //std::cout << (*it).getFechaComienzo().toString();
 
     //Recorrer la coleccion Mostrar "- Codigo: xx, Direccion: yy, FechaComienzo: dd/mm/aaaa"
     for (std::set<DTInmuebleAdministrado>::const_iterator it = ColInmueblesAdmin.begin(); it != ColInmueblesAdmin.end(); ++it) {
             int codigo = it->getCodigo(); 
             std::string dir=it->getDireccion();
-            DTFecha f=it->getFechaComienzo();//ERROR
+            DTFecha f=it->getFechaComienzo();
             std::string fecha=f.toString();
             std::cout << "- Codigo: " << codigo << ", Direccion: " << dir << ", FechaComienzo: " << fecha  << std::endl;
     }
