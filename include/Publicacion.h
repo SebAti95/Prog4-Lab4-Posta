@@ -23,6 +23,7 @@ public:
     ~Publicacion();
     int getCodigo();
     DTFecha* getFecha();
+    DTFecha getFechaDatos();
     TipoPublicacion getTipo();
     std::string getTexto();
     AdministraPropiedad* getAdmin();

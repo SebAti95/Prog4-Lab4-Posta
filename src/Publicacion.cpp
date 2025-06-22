@@ -26,6 +26,10 @@ DTFecha* Publicacion::getFecha() {
     return this->fecha;
 }
 
+DTFecha Publicacion::getFechaDatos() {
+    return this->fecha;
+}
+
 TipoPublicacion Publicacion::getTipo() {
     return this->tipo;
 }
