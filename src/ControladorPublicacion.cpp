@@ -76,10 +76,10 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     //std::map<int, Inmueble*>::iterator it;
     //it = manejPub->inmuebles.find(codigoInmueble);
     Inmueble* inm = manejPub->getInmueble(codigoInmueble);
-    if (inm == nullptr) {
-        std::cout << "Inmueble no encontrado." << std::endl;
-        return;
+    if (inm != nullptr) {
+        std::cout << "Inmueble encontrado." << std::endl;
     }
+    /*
     if (inm != nullptr) {
         inm->removePropietario();
         std::vector<AdministraPropiedad*>::iterator it;
@@ -90,6 +90,7 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         manejPub->eliminarRelacionInmueble(inm);
         inm->~Inmueble();
     }
+        */
 }
 
 void ControladorPublicacion::altaAdministraPropiedad(std::string nicknameInmobiliaria, int codigoInmueble) {
