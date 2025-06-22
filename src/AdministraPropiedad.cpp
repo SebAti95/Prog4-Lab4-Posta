@@ -126,6 +126,8 @@ bool AdministraPropiedad::esActiva(TipoPublicacion tipo, DTFecha* fecha) {
     bool activa = true;
     std::map<int, Publicacion*>::iterator it;
     for (it = publicaciones.begin(); it != publicaciones.end(); ++it) {
+        std::cout << "Pub1" << it->second->getFecha()->toString() << std::endl;
+        std::cout << "Pub2" << fecha->toString() << std::endl;
         if (((it->second->getTipo() == tipo) && (it->second->getActiva() == true))){
             if((it->second->getFechaDatos() < fecha)){
                 it->second->setActiva(false);
