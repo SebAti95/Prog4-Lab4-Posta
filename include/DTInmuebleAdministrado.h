@@ -17,6 +17,8 @@ class DTInmuebleAdministrado {
         
         // Operator for std::set comparison
         bool operator<(const DTInmuebleAdministrado& other) const;
+        DTInmuebleAdministrado(const DTInmuebleAdministrado& other);  
+        DTInmuebleAdministrado& operator=(const DTInmuebleAdministrado& other);
 };
 
 #endif
