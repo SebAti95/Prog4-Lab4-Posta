@@ -1,6 +1,7 @@
 #ifndef CARGADATOS_H
 #define CARGADATOS_H
 #include <vector>
+#include <string>
 
 class CargaDatos {
     private:
