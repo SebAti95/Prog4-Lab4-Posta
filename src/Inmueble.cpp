@@ -66,7 +66,7 @@ Propietario* Inmueble::getPropietario(){
 };
 
 void Inmueble::eliminarAdministracion(AdministraPropiedad* administracion) {
-    //auto it = std::find(this->administraciones.begin(), this->administraciones.end(), administracion);
+    auto it = std::find(this->administraciones.begin(), this->administraciones.end(), administracion);
     /*if (it != this->administraciones.end()) {
         this->administraciones.erase(it);
     }*/
