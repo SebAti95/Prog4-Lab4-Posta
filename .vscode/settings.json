@@ -1,10 +1,5 @@
 {
     "files.associations": {
-        "*.dbclient-js": "javascript",
-        "*.embeddedhtml": "html",
-        "xtree": "cpp",
-        "xstring": "cpp",
-        "xutility": "cpp",
         "array": "cpp",
         "atomic": "cpp",
         "bit": "cpp",
@@ -39,6 +34,7 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
+        "fstream": "cpp",
         "initializer_list": "cpp",
         "iosfwd": "cpp",
         "iostream": "cpp",
@@ -50,25 +46,6 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp",
-        "charconv": "cpp",
-        "cstring": "cpp",
-        "ctime": "cpp",
-        "format": "cpp",
-        "ios": "cpp",
-        "locale": "cpp",
-        "optional": "cpp",
-        "xfacet": "cpp",
-        "xiosbase": "cpp",
-        "xlocale": "cpp",
-        "xlocbuf": "cpp",
-        "xlocinfo": "cpp",
-        "xlocmes": "cpp",
-        "xlocmon": "cpp",
-        "xlocnum": "cpp",
-        "xloctime": "cpp",
-        "xmemory": "cpp",
-        "xtr1common": "cpp",
-        "fstream": "cpp"
+        "typeinfo": "cpp"
     }
 }

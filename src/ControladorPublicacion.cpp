@@ -58,11 +58,12 @@ bool ControladorPublicacion::altaPublicacion(std::string nicknameInmobiliaria, i
         Publicacion* p = new Publicacion(codigoPub, fechaActual, tipoPublicacion, texto, precio, activa, admin);
         admin->agregarPublicacion(p);
         m->agregarPublicacion(p);
-
         std::set<ISuscriptor*> suscriptores = inm->getSuscriptores();
         Inmueble* inmu = m->getInmueble(codigoInmueble);
-        for (std::set<ISuscriptor*>::iterator it = suscriptores.begin(); it != suscriptores.end(); ++it) {
-            (*it)->notificar(p->getDTNotificacion(inmu->getTipoInmueble(), inm->getNick()));
+        if (p->getActiva()){
+            for (std::set<ISuscriptor*>::iterator it = suscriptores.begin(); it != suscriptores.end(); ++it) {
+                (*it)->notificar(p->getDTNotificacion(inmu->getTipoInmueble(), inm->getNick()));
+            }
         }
     }
     else {
@@ -159,7 +160,7 @@ std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::strin
         admin = m->getPropietario(nick);
     }
     std::set<DTNotificacion> notificaciones = admin->getNotificaciones();
-    //admin->limpiarNotificaciones();
+    admin->limpiarNotificaciones();
     return notificaciones;
 }   
 
