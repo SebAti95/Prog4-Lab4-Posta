@@ -92,12 +92,13 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
                 std::cout << "Eliminando publicacion con codigo: " << dt->first << std::endl;
                 Publicacion* pub = dt->second;
                 manejPub->eliminarPublicacion(pub);
+                std::cout << "Publicacion eliminada." << std::endl;
             }
-            //delete (*it);
+            delete (*it);
         }        
-        //adminis.clear();
-        //manejPub->eliminarRelacionInmueble(inm);
-        //delete inm;
+        adminis.clear();
+        manejPub->eliminarRelacionInmueble(inm);
+        delete inm;
     }
     else {
         std::cout << "El inmueble con codigo " << codigoInmueble << " no existe." << std::endl;
