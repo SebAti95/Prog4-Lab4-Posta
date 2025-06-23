@@ -25,7 +25,7 @@ AdministraPropiedad::~AdministraPropiedad() {
         delete this->fecha;
         this->fecha = nullptr;
     }
-    this->eliminarPublicacionesAsoc();
+    //this->eliminarPublicacionesAsoc();
     
     // Only call the relationship elimination methods if the pointers are still valid
     // This prevents circular deletion issues when the inmueble is being deleted
