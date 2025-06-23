@@ -46,16 +46,13 @@ DTPublicacion::~DTPublicacion(){
 }
 
 bool DTPublicacion::operator<(const DTPublicacion& other) const {
-    // Compare by codigo first (primary key)
     return this->codigo < other.codigo;
 }
 
 DTPublicacion& DTPublicacion::operator=(const DTPublicacion& other) {
-    if (this != &other) {  // Self-assignment check
-        // Clean up existing resources
+    if (this != &other) {  
         delete fecha;
         
-        // Copy new data
         this->codigo = other.codigo;
         this->texto = other.texto;
         this->precio = other.precio;

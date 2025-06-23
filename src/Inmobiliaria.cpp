@@ -77,11 +77,6 @@ std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
             inmueblesAdministrados.insert(dt);
         }
     }
-    /*
-    std::set<DTInmuebleAdministrado>::iterator it;
-    it = inmueblesAdministrados.begin();
-    std::cout << (*it).getFechaComienzo().toString();
-    */
     return inmueblesAdministrados;
 }
 

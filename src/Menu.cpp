@@ -98,9 +98,9 @@ void ejecutarOpcion(int opcion) {
 
 void limpiar(){
     Factory* factory = Factory::getInstance();
-    factory->getIControladorPublicacion()->~ControladorPublicacion();
-    factory->getIControladorUsuario()->~ControladorUsuario();
-    factory->getIControladorUsuario()->~ControladorFechaActual();
+    //factory->getIControladorPublicacion()->delete();
+    //factory->getIControladorUsuario()->~ControladorUsuario();
+    //factory->getIControladorUsuario()->~ControladorFechaActual();
 }
 void altaUsuario(){
 
