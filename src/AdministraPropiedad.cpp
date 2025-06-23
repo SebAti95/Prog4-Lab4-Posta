@@ -37,7 +37,7 @@ AdministraPropiedad::~AdministraPropiedad() {
         inmueble->eliminarAdministracion(this);
         inmueble = nullptr;
     }*/
-    //this->eliminarRelacionInmobiliaria();
+    this->eliminarRelacionInmobiliaria();
     //this->eliminarRelacionInmueble();
     //delete this;
     // Delete all publication objects in the map
@@ -93,12 +93,12 @@ void AdministraPropiedad::eliminarPublicacionesAsoc() {
 }
 
 void AdministraPropiedad::eliminarRelacionInmobiliaria() {
-    this->inmobiliaria->eliminarAdministracion(this);
+    //this->inmobiliaria->eliminarAdministracion(this);
     this->inmobiliaria = nullptr;
 }
 
 void AdministraPropiedad::eliminarRelacionInmueble() {
-    this->inmueble->eliminarAdministracion(this);
+    //this->inmueble->eliminarAdministracion(this);
     this->inmueble = nullptr;
 }
 
