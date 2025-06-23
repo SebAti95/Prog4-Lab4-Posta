@@ -69,7 +69,6 @@ Propietario* Inmueble::getPropietario(){
 void Inmueble::eliminarAdministracion(AdministraPropiedad* administracion) {
     auto it = std::find(this->administraciones.begin(), this->administraciones.end(), administracion);
     if (it != this->administraciones.end()) {
-        std::cout << "Eliminando administracion de inmueble con codigo: " << (*it)->getInmueble()->getCodigo() << std::endl;
         //this->administraciones.erase(it);
     }
 }
