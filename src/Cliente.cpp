@@ -17,7 +17,7 @@ std::string Cliente::getDocumento() {
     return this->documento;
 }
 void Cliente::notificar(DTNotificacion notificacion) {
-    this->publicacionesSuscritas.push_back(notificacion.getCodigoPub());
+    this->notificaciones.push_back(notificacion);
 };
 
 std::string Cliente::getNickname() const {

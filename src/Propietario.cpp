@@ -20,7 +20,7 @@ std::string Propietario::getTelefono(){
 
 
 void Propietario::notificar(DTNotificacion notificacion) {
-    this->publicacionesSuscritas.push_back(notificacion.getCodigoPub());
+    this->notificaciones.push_back(notificacion);
 };
 
 std::string Propietario::getNickname() const {

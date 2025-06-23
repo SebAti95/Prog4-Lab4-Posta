@@ -448,23 +448,26 @@ void suscribirseNotificaciones(){
     std::cout << "Listado de Inmobiliarias:\n";
     std::set<std::string> nombresInmobiliarias = factory->getIControladorPublicacion()->listarNombreInmobiliarias(nick);
     //Recorrer la coleccion
-    for (std::set<std::string>::iterator it = nombresInmobiliarias.begin(); it != nombresInmobiliarias.end(); ++it) {
+    if (!nombresInmobiliarias.empty()) {
+        for (std::set<std::string>::iterator it = nombresInmobiliarias.begin(); it != nombresInmobiliarias.end(); ++it) {
         std::cout << "- Nombre: " << (*it) << std::endl;
     }
-    std::cout << "Seleccione las inmobiliarias a las que desea suscribirse (separadas por comas): ";
-    std::string input;
-    std::getline(std::cin, input);
+    bool salir = false;
     std::set<std::string> nombresSeleccionados;
-    std::string delimiter = ",";
-    size_t pos = 0;
-    while ((pos = input.find(delimiter)) != std::string::npos) {
-        std::string token = input.substr(0, pos);
-        nombresSeleccionados.insert(token);
-        input.erase(0, pos + delimiter.length());
+    while (!salir){
+        std::cout << "Nick de la inmobiliaria a las que desea suscribirse: ";
+        std::string nombreInmobiliaria;
+        std::cin >> nombreInmobiliaria;
+        nombresSeleccionados.insert(nombreInmobiliaria);
+        std::cout << "¿Desea seguir ingresando inmobiliarias? (1: Si, 0: No): ";
+        std::string input;
+        std::cin >> input;
+        if(input == "0")salir=true;
     }
     factory->getIControladorPublicacion()->suscribirse(nombresSeleccionados, nick);
+        
+    }
 }
-
 void consultaNotificaciones(){
     Factory* factory = Factory::getInstance();
     std::cout << "Usuarios: ";
