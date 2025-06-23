@@ -21,24 +21,24 @@ AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTF
 // Destructor implementation
 AdministraPropiedad::~AdministraPropiedad() {
     // Delete the fecha pointer
-    if (fecha != nullptr) {
-        delete fecha;
-        fecha = nullptr;
+    if (this->fecha != nullptr) {
+        delete this->fecha;
+        this->fecha = nullptr;
     }
     this->eliminarPublicacionesAsoc();
     
     // Only call the relationship elimination methods if the pointers are still valid
     // This prevents circular deletion issues when the inmueble is being deleted
-    if (inmobiliaria != nullptr) {
+    /*if (inmobiliaria != nullptr) {
         inmobiliaria->eliminarAdministracion(this);
         inmobiliaria = nullptr;
     }
     if (inmueble != nullptr) {
         inmueble->eliminarAdministracion(this);
         inmueble = nullptr;
-    }
-    //this->eliminarRelacionInmobiliaria();
-    //this->eliminarRelacionInmueble();
+    }*/
+    this->eliminarRelacionInmobiliaria();
+    this->eliminarRelacionInmueble();
     //delete this;
     // Delete all publication objects in the map
     /*

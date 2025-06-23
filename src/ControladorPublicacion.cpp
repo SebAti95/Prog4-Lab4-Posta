@@ -112,6 +112,7 @@ void ControladorPublicacion::altaAdministraPropiedad(std::string nicknameInmobil
     IControladorFechaActual* cfecha = factory->getControladorFechaActual();
     DTFecha* fechaActual = cfecha->getFechaActual();
     inm->altaAdministracionPropiedad(inmueble, fechaActual);
+    delete fechaActual;
 }
 
 std::set<DTInmuebleListado> ControladorPublicacion::listarInmueblesNoAdministrados(std::string nickInmobiliaria) {

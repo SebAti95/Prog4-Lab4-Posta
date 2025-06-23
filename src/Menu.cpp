@@ -447,7 +447,7 @@ void suscribirseNotificaciones(){
     std::cin >> nick;
     std::cout << "Listado de Inmobiliarias:\n";
     std::set<std::string> nombresInmobiliarias = factory->getIControladorPublicacion()->listarNombreInmobiliarias(nick);
-    //Recorrer la coleccion Mostra;
+    //Recorrer la coleccion
     for (std::set<std::string>::iterator it = nombresInmobiliarias.begin(); it != nombresInmobiliarias.end(); ++it) {
         std::cout << "- Nombre: " << (*it) << std::endl;
     }
