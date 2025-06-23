@@ -88,11 +88,11 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         std::vector<AdministraPropiedad*>::iterator it;
         for (it = adminis.begin(); it != adminis.end(); ++it) {
             std::map<int, Publicacion*>::iterator dt;
-            /*for (dt = (*it)->getPublicaciones().begin(); dt != (*it)->getPublicaciones().end(); ++dt) {
+            for (dt = (*it)->getPublicaciones().begin(); dt != (*it)->getPublicaciones().end(); ++dt) {
                 Publicacion* pub = dt->second;
                 manejPub->eliminarPublicacion(pub);
-            }*/
-            delete (*it);
+            }
+            //delete (*it);
         }        
         adminis.clear();
         manejPub->eliminarRelacionInmueble(inm);
