@@ -13,9 +13,6 @@
 #include "../include/DTInmuebleListado.h"
 #include "../include/DTPublicacion.h"
 #include "../include/DTUsuario.h"
-#include "../include/ControladorUsuario.h"
-#include "../include/ControladorPublicacion.h"
-#include "../include/ControladorFechaActual.h"
 #include <string>
 #include <set>
 
@@ -91,20 +88,12 @@ void ejecutarOpcion(int opcion) {
             break;
         case 0:
             std::cout << "Saliendo del programa..." << std::endl;
-            limpiar();
             exit(0);
         default:
             std::cout << "Opcion no valida. Intente de nuevo." << std::endl;
     }
 }
-void limpiar() {
-    Factory* factory = Factory::getInstance();
 
-    delete dynamic_cast<ControladorUsuario*>(factory->getIControladorUsuario());
-    delete dynamic_cast<ControladorPublicacion*>(factory->getIControladorPublicacion());
-    delete dynamic_cast<ControladorFechaActual*>(factory->getControladorFechaActual());
-
-}
 void altaUsuario(){
 
     Factory* factory = Factory::getInstance();

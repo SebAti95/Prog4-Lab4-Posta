@@ -16,5 +16,4 @@ void altaAdministracionPropiedad();
 void cargarDatos();
 void verFechaActual();
 void asignarFechaActual();
-void limpiar();
 #endif
