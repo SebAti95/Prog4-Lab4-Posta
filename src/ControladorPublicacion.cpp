@@ -89,14 +89,15 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         for (it = adminis.begin(); it != adminis.end(); ++it) {
             std::map<int, Publicacion*>::iterator dt;
             for (dt = (*it)->getPublicaciones().begin(); dt != (*it)->getPublicaciones().end(); ++dt) {
+                std::cout << "Eliminando publicacion con codigo: " << dt->first << std::endl;
                 Publicacion* pub = dt->second;
                 manejPub->eliminarPublicacion(pub);
             }
             //delete (*it);
         }        
-        adminis.clear();
-        manejPub->eliminarRelacionInmueble(inm);
-        delete inm;
+        //adminis.clear();
+        //manejPub->eliminarRelacionInmueble(inm);
+        //delete inm;
     }
     else {
         std::cout << "El inmueble con codigo " << codigoInmueble << " no existe." << std::endl;
