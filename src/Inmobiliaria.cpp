@@ -43,7 +43,7 @@ AdministraPropiedad* Inmobiliaria::crearPub(int codigoInm, TipoPublicacion tipo,
 }
 
 void Inmobiliaria::eliminarAdministracion(AdministraPropiedad* administracion) {
-    AdministraPropiedad* admin = nullptr;
+    //AdministraPropiedad* admin = nullptr;
     auto it = std::find(this->propiedadesAdministradas.begin(), this->propiedadesAdministradas.end(), administracion);
     if (it != this->propiedadesAdministradas.end()) {
         //admin = (*it);
