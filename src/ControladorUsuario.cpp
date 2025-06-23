@@ -23,7 +23,7 @@ ControladorUsuario* ControladorUsuario::getInstance() {
 
 // Destructor
 ControladorUsuario::~ControladorUsuario() {
-    // Cleanup if needed
+    instance = NULL;
 }
 
 bool ControladorUsuario::altaCliente(std::string nick, std::string nombre, std::string contraseña, std::string email, std::string apellido, std::string CI) {

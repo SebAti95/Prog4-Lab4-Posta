@@ -20,7 +20,7 @@ ControladorPublicacion* ControladorPublicacion::getInstance() {
 
 // Destructor
 ControladorPublicacion::~ControladorPublicacion() {
-    // Any cleanup if needed
+    instance = NULL;
 }
 
 // Implement the rest of the methods here
@@ -87,9 +87,6 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         std::vector<AdministraPropiedad*>& adminis = inm->getAdminis();        
         std::vector<AdministraPropiedad*>::iterator it;
         for (it = adminis.begin(); it != adminis.end(); ++it) {
-            //(*it)->eliminarPublicacionesAsoc();
-            //(*it)->eliminarRelacionInmobiliaria();
-            //(*it)->eliminarRelacionInmueble();
             delete (*it);
         }        
         adminis.clear();

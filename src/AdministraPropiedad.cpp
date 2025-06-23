@@ -21,10 +21,10 @@ AdministraPropiedad::AdministraPropiedad(Inmobiliaria* inm, Inmueble* inmue, DTF
 // Destructor implementation
 AdministraPropiedad::~AdministraPropiedad() {
     // Delete the fecha pointer
-    /*if (this->fecha != nullptr) {
+    if (this->fecha != nullptr) {
         delete this->fecha;
         this->fecha = nullptr;
-    }*/
+    }
     this->eliminarPublicacionesAsoc();
     
     // Only call the relationship elimination methods if the pointers are still valid
@@ -82,14 +82,13 @@ bool AdministraPropiedad::puedeCrear(TipoPublicacion tipo,DTFecha* fecha) {
 // Implementation of eliminarPublicacionesAsoc method
 void AdministraPropiedad::eliminarPublicacionesAsoc() {
     // Delete all publication objects in the map
-    /*for (auto& pair : publicaciones) {
+    for (auto& pair : publicaciones) {
         if (pair.second != nullptr) {
-            delete pair.second
+            delete pair.second;
             pair.second = nullptr;
         }
     }
     publicaciones.clear();
-    */
 }
 
 void AdministraPropiedad::eliminarRelacionInmobiliaria() {
