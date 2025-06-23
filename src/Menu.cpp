@@ -13,6 +13,9 @@
 #include "../include/DTInmuebleListado.h"
 #include "../include/DTPublicacion.h"
 #include "../include/DTUsuario.h"
+#include "../include/ControladorUsuario.h"
+#include "../include/ControladorPublicacion.h"
+#include "../include/ControladorFechaActual.h"
 #include <string>
 #include <set>
 
@@ -94,13 +97,13 @@ void ejecutarOpcion(int opcion) {
             std::cout << "Opcion no valida. Intente de nuevo." << std::endl;
     }
 }
-
-
-void limpiar(){
+void limpiar() {
     Factory* factory = Factory::getInstance();
-    //factory->getIControladorPublicacion()->delete();
-    //factory->getIControladorUsuario()->~ControladorUsuario();
-    //factory->getIControladorUsuario()->~ControladorFechaActual();
+
+    delete dynamic_cast<ControladorUsuario*>(factory->getIControladorUsuario());
+    delete dynamic_cast<ControladorPublicacion*>(factory->getIControladorPublicacion());
+    delete dynamic_cast<ControladorFechaActual*>(factory->getControladorFechaActual());
+
 }
 void altaUsuario(){
 

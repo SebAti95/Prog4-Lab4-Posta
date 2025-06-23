@@ -80,16 +80,11 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
         std::map<int, Publicacion*>::iterator dt;
         for (it = adminis.begin(); it != adminis.end(); ++it) {
         std::map<int, Publicacion*>& pubs = (*it)->getPublicacionesRef();        
-            std::cout << "Eliminando administrador de propiedad con fecha: " << (*it)->getFecha()->toString() << std::endl;
             for (dt = pubs.begin(); dt != pubs.end(); ++dt) {
-                std::cout << "Eliminando publicacion con codigo: " << dt->first << std::endl;
                 Publicacion* pub = dt->second;
                 manejPub->eliminarPublicacion(pub);
-                std::cout << "Publicacion eliminada." << std::endl;
             }
-            std::cout << "Antes de eliminar admin." << std::endl;
             delete (*it);
-            std::cout << "Administrador de propiedad eliminado." << std::endl;
         }        
         adminis.clear();
         std::cout << "Administrador de propiedad eliminado." << std::endl;

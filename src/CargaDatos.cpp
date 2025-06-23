@@ -99,7 +99,7 @@ void CargaDatos::cargarInmuebles() {
         }
 
         std::string nickPropietario = c[0]; // propietario
-        int codigoInmuebleCSV = std::stoi(c[1]); // código del inmueble en el CSV
+        //int codigoInmuebleCSV = std::stoi(c[1]); // código del inmueble en el CSV
         std::string tipo = c[2]; // "casa" o "apartamento"
         
         std::string direccion      = c[3];
