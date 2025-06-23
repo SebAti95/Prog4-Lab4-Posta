@@ -95,6 +95,14 @@ void ejecutarOpcion(int opcion) {
     }
 }
 
+
+/*void limpiar(){
+    
+    Factory* factory = Factory::getInstance();
+    factory->getIControladorPublicacion()->~IControladorPublicacion();
+    factory->getIControladorUsuario()->~IControladorUsuario();
+    factory->getIControladorUsuario()->~IControladorUsuario();
+}*/
 void altaUsuario(){
 
     Factory* factory = Factory::getInstance();
