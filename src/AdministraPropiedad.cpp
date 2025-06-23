@@ -84,6 +84,7 @@ void AdministraPropiedad::eliminarPublicacionesAsoc() {
     // Delete all publication objects in the map
     for (std::map<int, Publicacion*>::iterator it = publicaciones.begin(); it != publicaciones.end(); ++it) {
         if (it->second != nullptr) {
+            
             delete it->second;
             it->second = nullptr; // Set to nullptr after deletion
         }
