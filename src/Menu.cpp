@@ -499,7 +499,6 @@ void consultaNotificaciones(){
 
 void eliminarSuscripciones(){
     Factory* factory = Factory::getInstance();
-    std::cout << "Ingrese su nickname: ";
     std::cout << "Usuarios: ";
     std::set<DTUsuario> Clientes = factory->getIControladorUsuario()->listarClientes();
     std::set<DTUsuario> Propietarios = factory->getIControladorUsuario()->listarPropietarios();
@@ -509,6 +508,7 @@ void eliminarSuscripciones(){
     for (std::set<DTUsuario>::const_iterator it = Propietarios.begin(); it != Propietarios.end(); ++it) {
        std::cout << "Nickname: "<< it->getNickname() << std::endl;
     }
+    std::cout << "Ingrese su nickname: ";
     std::string nick;
     std::cin >> nick;
     std::cout << "Listado de Inmobiliarias Suscritas:\n";
@@ -517,16 +517,17 @@ void eliminarSuscripciones(){
     for (std::set<std::string>::const_iterator it = inmobiliariasSuscritas.begin(); it != inmobiliariasSuscritas.end(); ++it) {
         std::cout << "- Nombre: " << *it << std::endl;
     }
-    std::cout << "Seleccione las inmobiliarias a las que desea eliminar la suscripcion (separadas por comas): ";
-    std::string input;
-    std::getline(std::cin, input);
+    bool salir = false;
     std::set<std::string> nombresSeleccionados;
-    std::string delimiter = ",";
-    size_t pos = 0;
-    while ((pos = input.find(delimiter)) != std::string::npos) {
-        std::string token = input.substr(0, pos);
-        nombresSeleccionados.insert(token);
-        input.erase(0, pos + delimiter.length());
+    while (!salir){
+        std::cout << "Nick de la inmobiliaria a las que desea suscribirse: ";
+        std::string nombreInmobiliaria;
+        std::cin >> nombreInmobiliaria;
+        nombresSeleccionados.insert(nombreInmobiliaria);
+        std::cout << "¿Desea seguir ingresando inmobiliarias? (1: Si, 0: No): ";
+        std::string input;
+        std::cin >> input;
+        if(input == "0")salir=true;
     }
     factory->getIControladorPublicacion()->eliminarSuscripcion(nombresSeleccionados, nick);
 

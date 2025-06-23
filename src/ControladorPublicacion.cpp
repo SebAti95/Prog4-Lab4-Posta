@@ -124,12 +124,10 @@ std::set<DTInmuebleListado> ControladorPublicacion::listarInmueblesNoAdministrad
 }
 
 std::set<std::string> ControladorPublicacion::listarNombreInmobiliarias(std::string nick) {
-    std::cout << "Entro a listarNombreInmobiliarias" << std::endl;
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     std::set<Inmobiliaria*> inmobiliarias = m->getInmobiliarias();
     std::set<std::string> nombres;
     for (std::set<Inmobiliaria*>::iterator it = inmobiliarias.begin(); it != inmobiliarias.end(); ++it) {
-        std::cout << "Entro al for de listarNombreInmobiliarias" << std::endl;
         if(!(*it)->UsuarioSuscrito(nick)){
             nombres.insert((*it)->getNick());
         }
@@ -166,15 +164,14 @@ std::set<DTNotificacion> ControladorPublicacion::listarNotificaciones(std::strin
 
 std::set<std::string> ControladorPublicacion::seleccionarSuscripcion(std::string nick) {
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
-    ISuscriptor* admin = m->getCliente(nick);
-    if (admin == nullptr) {
-        admin = m->getPropietario(nick);
+    std::set<Inmobiliaria*> inmobiliarias = m->getInmobiliarias();
+    std::set<std::string> nombres;
+    for (std::set<Inmobiliaria*>::iterator it = inmobiliarias.begin(); it != inmobiliarias.end(); ++it) {
+        if((*it)->UsuarioSuscrito(nick)){
+            nombres.insert((*it)->getNick());
+        }
     }
-    std::set<std::string> nombresInmobiliarias;
-    for(std::set<std::string>::iterator it = admin->getInmobiliariasSuscritas().begin(); it != admin->getInmobiliariasSuscritas().end(); ++it) {
-        nombresInmobiliarias.insert(*it);
-    }
-    return nombresInmobiliarias;
+    return nombres;
 }
 
 void ControladorPublicacion::eliminarSuscripcion(std::set<std::string> nombresInmobiliarias, std::string nick) {
