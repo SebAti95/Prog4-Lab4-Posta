@@ -3,15 +3,12 @@
 #include <cstddef>
 #include <iostream>
 
-// Initialize static instance pointer to nullptr
 ManejadorPublicacion* ManejadorPublicacion::instance = nullptr;
 
-// Constructor - initializes the maps
+
 ManejadorPublicacion::ManejadorPublicacion() {
-    // Initialize empty maps
     this->publicaciones = std::map<int, Publicacion*>();
     this->inmuebles = std::map<int, Inmueble*>();
-    // this->inmobiliarias = std::map<std::string, Inmobiliaria*>();
 }
 
 // Get instance - Singleton pattern
@@ -22,7 +19,7 @@ ManejadorPublicacion* ManejadorPublicacion::getInstance() {
     return instance;
 }
 
-// Methods for managing Publicacion objects
+
 void ManejadorPublicacion::agregarPublicacion(Publicacion* publicacion) {
     if (publicacion != nullptr) {
         this->publicaciones[publicacion->getCodigo()] = publicacion;
@@ -42,7 +39,7 @@ Publicacion* ManejadorPublicacion::getPublicacion(int codigo) {
     return nullptr;
 }
 
-// Methods for managing Inmueble objects
+
 void ManejadorPublicacion::agregarInmueble(Inmueble* inmueble) {
     if (inmueble != nullptr) {
         this->inmuebles[inmueble->getCodigo()] = inmueble;
@@ -91,23 +88,5 @@ std::set<DTInmuebleListado> ManejadorPublicacion::listarInmuebles() {
     return inmueblesSet;
 }
 
-// Methods for managing Inmobiliaria objects
-// void ManejadorPublicacion::agregarInmobiliaria(Inmobiliaria* inmobiliaria) {
-//     if (inmobiliaria != nullptr) {
-//         this->inmobiliarias[inmobiliaria->getNick()] = inmobiliaria;
-//     }
-// }
 
-// void ManejadorPublicacion::eliminarInmobiliaria(Inmobiliaria* inmobiliaria) {
-//     if (inmobiliaria != nullptr) {
-//         this->inmobiliarias.erase(inmobiliaria->getNick());
-//     }
-// }
-
-// Inmobiliaria* ManejadorPublicacion::getInmobiliaria(std::string nick) {
-//     if (this->inmobiliarias.find(nick) != this->inmobiliarias.end()) {
-//         return this->inmobiliarias[nick];
-//     }
-//     return nullptr;
-// }
 

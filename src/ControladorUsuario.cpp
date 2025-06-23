@@ -5,15 +5,14 @@
 #include "../include/ManejadorUsuario.h"
 #include "../include/ManejadorPublicacion.h"
 
-// Initialize static instance pointer to nullptr
+
 ControladorUsuario* ControladorUsuario::instance = nullptr;
 
-// Constructor - initializes the manejador
+
 ControladorUsuario::ControladorUsuario() {
     this->codigoInmueble=0;
 }
 
-// Get instance - Singleton pattern
 ControladorUsuario* ControladorUsuario::getInstance() {
     if (instance == nullptr) {
         instance = new ControladorUsuario();

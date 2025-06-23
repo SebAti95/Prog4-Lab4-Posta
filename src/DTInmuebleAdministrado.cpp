@@ -7,33 +7,25 @@ DTInmuebleAdministrado::DTInmuebleAdministrado(int codigo, std::string direccion
 }
 
 DTInmuebleAdministrado::DTInmuebleAdministrado(const DTInmuebleAdministrado& other) {
-    //std::cout << "[DEBUG] Copy constructor DTInmuebleAdministrado llamado" << std::endl;
     this->codigo = other.codigo;
     this->direccion = other.direccion;
     
     if (other.fechaComienzo != nullptr) {
-        //std::cout << "[DEBUG] Copiando fecha en copy constructor: " << other.fechaComienzo->toString() << std::endl;
         this->fechaComienzo = new DTFecha(other.fechaComienzo);
-        //std::cout << "[DEBUG] Fecha copiada exitosamente en copy constructor" << std::endl;
     } else {
         this->fechaComienzo = nullptr;
     }
 }
 
 DTInmuebleAdministrado& DTInmuebleAdministrado::operator=(const DTInmuebleAdministrado& other) {
-    //std::cout << "[DEBUG] Assignment operator DTInmuebleAdministrado llamado" << std::endl;
-    if (this != &other) {  // Self-assignment check
-        // Clean up existing resources
+    if (this != &other) {  
         delete fechaComienzo;
         
-        // Copy new data
         this->codigo = other.codigo;
         this->direccion = other.direccion;
         
         if (other.fechaComienzo != nullptr) {
-            //std::cout << "[DEBUG] Copiando fecha en assignment operator: " << other.fechaComienzo->toString() << std::endl;
             this->fechaComienzo = new DTFecha(other.fechaComienzo);
-            //std::cout << "[DEBUG] Fecha copiada exitosamente en assignment operator" << std::endl;
         } else {
             this->fechaComienzo = nullptr;
         }

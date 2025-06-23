@@ -1,11 +1,10 @@
 #include "../include/ManejadorUsuario.h"
 
-// Initialize static instance pointer to nullptr
+
 ManejadorUsuario* ManejadorUsuario::instance = nullptr;
 
 // Constructor
 ManejadorUsuario::ManejadorUsuario() {
-    // Initialize maps if needed
 }
 
 // Get instance - Singleton pattern
@@ -16,7 +15,7 @@ ManejadorUsuario* ManejadorUsuario::getInstance() {
     return instance;
 }
 
-// Cliente methods
+
 void ManejadorUsuario::agregarCliente(Cliente* cliente) {
     if (cliente != nullptr) {
         this->cliente[cliente->getNick()] = cliente;

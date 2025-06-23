@@ -27,6 +27,7 @@ class AdministraPropiedad {
         bool inmobiliariaAsociada(Inmobiliaria* inm);
         void agregarPublicacion(Publicacion* pub);
         std::map<int,Publicacion*> getPublicaciones();
+        std::map<int, Publicacion*>& getPublicacionesRef();
         bool esActiva(TipoPublicacion tipo, DTFecha* fecha);
 
 };

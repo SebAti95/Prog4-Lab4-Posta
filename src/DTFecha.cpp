@@ -14,12 +14,6 @@ DTFecha::DTFecha(DTFecha* fecha){
     this->dia = fecha->dia;
 }
 
-/*
-int DTFecha::getAnio(){
-    return this->anio;
-}
-*/
-
 bool DTFecha::operator>=(DTFecha* fecha) {
     return (
         this->anio > fecha->anio || 

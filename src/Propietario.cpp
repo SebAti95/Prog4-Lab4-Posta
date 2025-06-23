@@ -44,16 +44,10 @@ std::set<DTInmuebleListado> Propietario::getInmueblesNoAdmin(Inmobiliaria* inm) 
 }
 
 void Propietario::removeInmueble(int codigoInmueble) {
-    /*
-    std::map<int,Inmueble*>::iterator it;
-    it = this->inmuebles.find(codigoInmueble);
-    */
     this->inmuebles.erase(codigoInmueble);
 }
 
 void Propietario::asociarInmueble(Inmueble* inmueble, int codigo) {
-    //Inmueble* inmCopia = inmueble;
-    //this->inmuebles[codigo] = inmCopia;
     this->inmuebles[codigo] = inmueble;
 }
 

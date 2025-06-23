@@ -2,7 +2,7 @@
 #include <cstddef>
 #include <iostream>
 
-// Initialize the static instance to nullptr
+
 ControladorPublicacion* ControladorPublicacion::instance = nullptr;
 
 // Constructor
@@ -10,7 +10,7 @@ ControladorPublicacion::ControladorPublicacion() {
     this->codigoUltimaPublicacion=1;
 }
 
-// Singleton getInstance method
+// Singleton getInstance
 ControladorPublicacion* ControladorPublicacion::getInstance() {
     if (instance == nullptr) {
         instance = new ControladorPublicacion();
@@ -23,21 +23,13 @@ ControladorPublicacion::~ControladorPublicacion() {
     instance = NULL;
 }
 
-// Implement the rest of the methods here
-// These would be stubs for now until full implementation is needed
 
 
 std::set<DTInmuebleAdministrado> ControladorPublicacion::listarInmueblesAdministrados(std::string nicknameInmobiliaria) {
     std::set<DTInmuebleAdministrado> res;
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     Inmobiliaria* inm = m->getInmobiliaria(nicknameInmobiliaria);
-    //std::cout << "- Fecha: " << inm->getAdm()->getFecha()->toString() << std::endl;
     res = inm->coleccionInmuebles();
-    /*
-    std::set<DTInmuebleAdministrado>::iterator it;
-    it = res.begin();
-    std::cout << (*it).getFechaComienzo().toString();
-    */
     return res;
 }
 
@@ -83,13 +75,13 @@ void ControladorPublicacion::eliminarInmueble(int codigoInmueble) {
     ManejadorPublicacion* manejPub = ManejadorPublicacion::getInstance();
     Inmueble* inm = manejPub->getInmueble(codigoInmueble);
     if (inm != nullptr) {
-        //inm->removePropietario();
         std::vector<AdministraPropiedad*>& adminis = inm->getAdminis();        
         std::vector<AdministraPropiedad*>::iterator it;
+        std::map<int, Publicacion*>::iterator dt;
         for (it = adminis.begin(); it != adminis.end(); ++it) {
-            std::map<int, Publicacion*>::iterator dt;
+        std::map<int, Publicacion*>& pubs = (*it)->getPublicacionesRef();        
             std::cout << "Eliminando administrador de propiedad con fecha: " << (*it)->getFecha()->toString() << std::endl;
-            for (dt = (*it)->getPublicaciones().begin(); dt != (*it)->getPublicaciones().end(); ++dt) {
+            for (dt = pubs.begin(); dt != pubs.end(); ++dt) {
                 std::cout << "Eliminando publicacion con codigo: " << dt->first << std::endl;
                 Publicacion* pub = dt->second;
                 manejPub->eliminarPublicacion(pub);
@@ -208,7 +200,7 @@ DTInmueble* ControladorPublicacion::detalleInmueblePublicacion(int codigoPublica
 
 std::set<DTInmuebleListado> ControladorPublicacion::listarInmuebles() {
     ManejadorPublicacion* m = ManejadorPublicacion::getInstance();
-    std::set<DTInmuebleListado> inmuebles = m->listarInmuebles(); // Use a public method to access inmuebles
+    std::set<DTInmuebleListado> inmuebles = m->listarInmuebles();
     return inmuebles;
 }
 
@@ -217,5 +209,3 @@ DTInmueble* ControladorPublicacion::detalleInmueble(int codigoInmueble) {
     Inmueble* inmueble = m->getInmueble(codigoInmueble);
     return inmueble->getDTInmueble();
 }
-
-//hola soy seba :D

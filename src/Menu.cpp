@@ -88,7 +88,7 @@ void ejecutarOpcion(int opcion) {
             break;
         case 0:
             std::cout << "Saliendo del programa..." << std::endl;
-            //limpiar();
+            limpiar();
             exit(0);
         default:
             std::cout << "Opcion no valida. Intente de nuevo." << std::endl;
@@ -96,12 +96,12 @@ void ejecutarOpcion(int opcion) {
 }
 
 
-/*void limpiar(){
+void limpiar(){
     Factory* factory = Factory::getInstance();
     factory->getIControladorPublicacion()->~ControladorPublicacion();
     factory->getIControladorUsuario()->~ControladorUsuario();
     factory->getIControladorUsuario()->~ControladorFechaActual();
-}*/
+}
 void altaUsuario(){
 
     Factory* factory = Factory::getInstance();

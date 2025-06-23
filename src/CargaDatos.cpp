@@ -9,10 +9,8 @@
 CargaDatos* CargaDatos::instance = NULL;
 
 CargaDatos::CargaDatos() {
-    //TODO: Cargar los datos de prueba
 }
 CargaDatos::~CargaDatos() {
-    // Destructor, si es necesario liberar recursos
 }
 void CargaDatos::cargarClientes() {
     IUsuario* iu = Factory::getInstance()->getIControladorUsuario();
@@ -111,7 +109,6 @@ void CargaDatos::cargarInmuebles() {
 
         try {
             
-            // Establecer el propietario actual antes de crear el inmueble
             iu->setNicknamePropietario(nickPropietario);
             
             if (tipo == "Casa") {
