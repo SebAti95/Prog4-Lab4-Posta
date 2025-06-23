@@ -88,6 +88,7 @@ void ejecutarOpcion(int opcion) {
             break;
         case 0:
             std::cout << "Saliendo del programa..." << std::endl;
+            
             exit(0);
         default:
             std::cout << "Opcion no valida. Intente de nuevo." << std::endl;
