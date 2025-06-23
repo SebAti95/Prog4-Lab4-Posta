@@ -33,7 +33,7 @@ class Inmueble {
         Propietario* getPropietario();
         virtual DTInmueble* getDTInmueble() = 0;
         void removePropietario();
-        AdministraPropiedad* eliminarAdministracion(AdministraPropiedad* administracion);
+        void eliminarAdministracion(AdministraPropiedad* administracion);
         bool esAdministrado(Inmobiliaria* inm);
         void asociarAdministracionPropiedad(AdministraPropiedad* adminPropiedad);
         std::vector<AdministraPropiedad*>& getAdminis();

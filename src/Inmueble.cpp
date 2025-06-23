@@ -66,14 +66,14 @@ Propietario* Inmueble::getPropietario(){
     return this->propietario;
 };
 
-AdministraPropiedad* Inmueble::eliminarAdministracion(AdministraPropiedad* administracion) {
-    AdministraPropiedad* admin = nullptr;
+void Inmueble::eliminarAdministracion(AdministraPropiedad* administracion) {
+    //AdministraPropiedad* admin = nullptr;
     auto it = std::find(this->administraciones.begin(), this->administraciones.end(), administracion);
     if (it != this->administraciones.end()) {
-        admin = (*it);  // guarda el puntero antes de borrar
+        //admin = (*it);  // guarda el puntero antes de borrar
         it = this->administraciones.erase(it);
     }
-    return admin;
+    //return admin;
 }
 
 AdministraPropiedad* Inmueble::getAdmin() {

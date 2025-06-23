@@ -33,7 +33,7 @@ class Inmobiliaria : public Usuario {
         void agregar(ISuscriptor* o);
         void eliminar(ISuscriptor* o);
         AdministraPropiedad* crearPub(int codigoInmueble, TipoPublicacion TipoPublicacion, DTFecha* fecha);
-        AdministraPropiedad* eliminarAdministracion(AdministraPropiedad* administracion);
+        void eliminarAdministracion(AdministraPropiedad* administracion);
         std::set<ISuscriptor*> getSuscriptores();
         //caso nuevo
         std::set<DTInmuebleListado> getInmbueblesNoAdminPropietario();
