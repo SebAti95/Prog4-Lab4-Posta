@@ -1,4 +1,5 @@
 #include "../include/Propietario.h"
+#include <iostream>
 
 Propietario::Propietario(std::string nickname, std::string contrasena, std::string nombre, std::string email, std::string cuenta, std::string telefono) : Usuario(nickname, contrasena, nombre, email) {
     this->cuentaBancaria = cuenta;

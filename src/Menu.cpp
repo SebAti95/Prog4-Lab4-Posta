@@ -576,8 +576,8 @@ void cargarDatos(){
         c->cargarInmuebles();
         c->cargarRepresentaciones();
         c->cargarAdministraPropiedades();
-        c->cargarPublicaciones();
         c->cargarSuscripciones();
+        c->cargarPublicaciones();
     } catch (const std::exception& e) {
         // Manejo de excepciones, si es necesario
         std::cerr << "Error al cargar los datos: " << e.what() << std::endl;
