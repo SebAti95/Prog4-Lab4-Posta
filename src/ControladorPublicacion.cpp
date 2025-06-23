@@ -123,10 +123,12 @@ std::set<DTInmuebleListado> ControladorPublicacion::listarInmueblesNoAdministrad
 }
 
 std::set<std::string> ControladorPublicacion::listarNombreInmobiliarias(std::string nick) {
+    std::cout << "Entro a listarNombreInmobiliarias" << std::endl;
     ManejadorUsuario* m = ManejadorUsuario::getInstance();
     std::set<Inmobiliaria*> inmobiliarias = m->getInmobiliarias();
     std::set<std::string> nombres;
     for (std::set<Inmobiliaria*>::iterator it = inmobiliarias.begin(); it != inmobiliarias.end(); ++it) {
+        std::cout << "Entro al for de listarNombreInmobiliarias" << std::endl;
         if(!(*it)->UsuarioSuscrito(nick)){
             nombres.insert((*it)->getNick());
         }

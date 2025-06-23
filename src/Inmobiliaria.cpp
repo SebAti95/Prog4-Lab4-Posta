@@ -83,8 +83,11 @@ std::set<DTInmuebleAdministrado> Inmobiliaria::coleccionInmuebles() {
 }
 
 bool Inmobiliaria::UsuarioSuscrito(std::string nick) {
+    std::cout << "Entro a UsuarioSuscrito" << std::endl;
     for (std::set<ISuscriptor*>::iterator it = this->suscriptores.begin(); it != this->suscriptores.end(); ++it) {
+        std::cout << "Comparando con: " << (*it)->getNickname() << std::endl;
         if ((*it)->getNickname() == nick) {
+            std::cout << "Usuario encontrado: " << nick << std::endl;
             return true;
         }
     }
