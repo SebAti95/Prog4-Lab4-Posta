@@ -97,11 +97,10 @@ void ejecutarOpcion(int opcion) {
 
 
 /*void limpiar(){
-    
     Factory* factory = Factory::getInstance();
-    factory->getIControladorPublicacion()->~IControladorPublicacion();
-    factory->getIControladorUsuario()->~IControladorUsuario();
-    factory->getIControladorUsuario()->~IControladorUsuario();
+    factory->getIControladorPublicacion()->~ControladorPublicacion();
+    factory->getIControladorUsuario()->~ControladorUsuario();
+    factory->getIControladorUsuario()->~ControladorFechaActual();
 }*/
 void altaUsuario(){
 

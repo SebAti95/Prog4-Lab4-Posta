@@ -96,7 +96,7 @@ void AdministraPropiedad::eliminarPublicacionesAsoc() {
         }
     }
     */
-    publicaciones.clear();
+    this->publicaciones.clear();
 }
 
 void AdministraPropiedad::eliminarRelacionInmobiliaria() {

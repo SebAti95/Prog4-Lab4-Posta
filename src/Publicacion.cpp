@@ -16,7 +16,6 @@ Publicacion::~Publicacion() {
         delete this->fecha;
         this->fecha = nullptr;
     }
-    delete this;
 }
 
 int Publicacion::getCodigo() {
